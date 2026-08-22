@@ -1,6 +1,7 @@
 import { civilizations } from "@/data/civilizations";
 import { TimelineApp } from "@/components/TimelineApp";
 import { LocaleSwitch } from "@/components/LocaleSwitch";
+import { LiveClock } from "@/components/LiveClock";
 import { dictionaries, defaultLocale, isLocale } from "@/lib/i18n";
 
 export default async function Home({
@@ -19,7 +20,10 @@ export default async function Home({
           <p className="eyebrow mono">{dict.page.eyebrow}</p>
           <LocaleSwitch locale={locale} />
         </div>
-        <h1>{dict.page.title}</h1>
+        <div className="title-row">
+          <h1>{dict.page.title}</h1>
+          <LiveClock locale={locale} />
+        </div>
         <p className="lede">{dict.page.lede}</p>
       </header>
       <TimelineApp civilizations={civilizations} locale={locale} />
