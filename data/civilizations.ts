@@ -242,6 +242,7 @@ export const civilizations: Civilization[] = [
       { year: 1950, label: { ko: "대가속(Great Acceleration) 시작", en: "The Great Acceleration begins" } },
       { year: 1972, label: { ko: "로마클럽 「성장의 한계」 보고서", en: "Club of Rome's Limits to Growth report" } },
       { year: 2015, label: { ko: "파리기후협정", en: "Paris Agreement" } },
+      { year: 2022, label: { ko: "ChatGPT 출시, AI 대중화", en: "ChatGPT launch — AI goes mainstream" } },
     ],
     color: "#b0563a",
   },
