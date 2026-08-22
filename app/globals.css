@@ -57,12 +57,48 @@ main {
   margin-bottom: 40px;
 }
 
+.page-header-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 .eyebrow {
   font-size: 12.5px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent-ink);
   margin: 0 0 12px;
+}
+
+.locale-switch {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+}
+
+.locale-switch a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.locale-switch a:hover,
+.locale-switch a:focus-visible {
+  color: var(--accent-ink);
+  border-bottom-color: var(--accent-ink);
+}
+
+.locale-switch [aria-current="true"] {
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+
+.locale-sep {
+  margin: 0 6px;
+  opacity: 0.5;
 }
 
 h1 {

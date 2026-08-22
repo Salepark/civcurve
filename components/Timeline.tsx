@@ -1,5 +1,6 @@
 import { Civilization } from "@/data/civilizations";
 import { makeXScale, formatTick } from "@/lib/scale";
+import type { Locale } from "@/lib/i18n";
 
 const ROW_HEIGHT = 58;
 const BAND_HALF_HEIGHT = 14;
@@ -38,10 +39,12 @@ function bandPath(
 export function Timeline({
   civilizations,
   selectedId,
+  locale,
   onSelect,
 }: {
   civilizations: Civilization[];
   selectedId: string | null;
+  locale: Locale;
   onSelect: (id: string) => void;
 }) {
   const minYear = Math.min(...civilizations.map((c) => c.startYear));
@@ -63,12 +66,13 @@ export function Timeline({
       className="timeline"
       viewBox={`0 0 ${CHART_WIDTH} ${svgHeight}`}
       role="img"
-      aria-label="문명 생명곡선 타임라인"
+      aria-label={locale === "en" ? "Civilization curve timeline" : "문명 생명곡선 타임라인"}
     >
       {sorted.map((civ, i) => {
         const y = TOP_PADDING + i * ROW_HEIGHT;
         const isSelected = civ.id === selectedId;
         const isDimmed = selectedId !== null && !isSelected;
+        const name = civ.name[locale];
         return (
           <g
             key={civ.id}
@@ -78,8 +82,9 @@ export function Timeline({
             tabIndex={0}
             role="button"
             aria-pressed={isSelected}
-            aria-label={`${civ.nameKo}, ${formatTick(civ.startYear)} ~ ${formatTick(
-              civ.endYear
+            aria-label={`${name}, ${formatTick(civ.startYear, locale)} - ${formatTick(
+              civ.endYear,
+              locale
             )}`}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") onSelect(civ.id);
@@ -93,8 +98,11 @@ export function Timeline({
               strokeWidth={isSelected ? 2 : 0}
             />
             <text className="band-label" x={4} y={y - BAND_HALF_HEIGHT - 9}>
-              {civ.nameKo}
-              <tspan className="band-years mono"> {formatTick(civ.startYear)}–{formatTick(civ.endYear)}</tspan>
+              {name}
+              <tspan className="band-years mono">
+                {" "}
+                {formatTick(civ.startYear, locale)}–{formatTick(civ.endYear, locale)}
+              </tspan>
             </text>
           </g>
         );
@@ -105,7 +113,7 @@ export function Timeline({
         <g key={year} className="tick">
           <line x1={x(year)} y1={axisY - 4} x2={x(year)} y2={axisY + 4} />
           <text className="tick-label mono" x={x(year)} y={axisY + AXIS_LABEL_GAP} textAnchor="middle">
-            {formatTick(year)}
+            {formatTick(year, locale)}
           </text>
         </g>
       ))}
