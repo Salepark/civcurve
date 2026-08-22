@@ -158,6 +158,16 @@ h1 {
   opacity: 0.28;
 }
 
+.open-edge {
+  stroke-width: 2;
+  stroke-dasharray: 2.5 3;
+  opacity: 0.9;
+}
+
+.civ-row[data-dimmed="true"] .open-edge {
+  opacity: 0.28;
+}
+
 .civ-row:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
@@ -204,8 +214,19 @@ h1 {
   font-size: 11.5px;
   letter-spacing: 0.05em;
   color: var(--gold);
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin-bottom: 8px;
+}
+
+.detail-ongoing-tag {
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+  color: #b0563a;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 2px 8px;
 }
 
 .detail-panel h2 {

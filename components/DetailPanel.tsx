@@ -21,18 +21,23 @@ export function DetailPanel({
 
   const name = civ.name[locale];
   const otherLocale: Locale = locale === "en" ? "ko" : "en";
+  const endLabel = civ.ongoing ? dict.detail.present : formatTick(civ.endYear, locale);
+  const peakEndLabel = civ.ongoing ? dict.detail.present : formatTick(civ.peakEnd, locale);
 
   return (
-    <div className="detail-panel">
-      <span className="detail-region mono">{regionLabels[locale][civ.region]}</span>
+    <div className="detail-panel" data-ongoing={civ.ongoing ?? false}>
+      <span className="detail-region mono">
+        {regionLabels[locale][civ.region]}
+        {civ.ongoing && <span className="detail-ongoing-tag">{dict.detail.ongoing}</span>}
+      </span>
       <h2>
         {name} <span className="detail-en">{civ.name[otherLocale]}</span>
       </h2>
       <p className="detail-range mono">
-        {formatTick(civ.startYear, locale)} – {formatTick(civ.endYear, locale)}
+        {formatTick(civ.startYear, locale)} – {endLabel}
         <span className="detail-peak">
           {" "}
-          · {dict.detail.peak} {formatTick(civ.peakStart, locale)}–{formatTick(civ.peakEnd, locale)}
+          · {dict.detail.peak} {formatTick(civ.peakStart, locale)}–{peakEndLabel}
         </span>
       </p>
       <p className="detail-summary">{civ.summary[locale]}</p>

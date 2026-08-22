@@ -2,7 +2,8 @@ export type RegionKey =
   | "westAsia"
   | "mediterraneanEurope"
   | "southAsia"
-  | "americas";
+  | "americas"
+  | "global";
 
 export type LocalizedText = {
   ko: string;
@@ -25,9 +26,15 @@ export type Civilization = {
   summary: LocalizedText;
   keyEvents: KeyEvent[];
   color: string;
+  /**
+   * true면 아직 쇠퇴기가 관측되지 않은 "진행 중" 문명 — Timeline이 곡선을
+   * 한 점으로 닫지 않고 현재 시점에서 폭이 좁아지지 않은 채로 잘라 그린다.
+   * 다른 모든 문명과의 시각적 대비(닫힌 곡선 vs 열린 곡선)가 핵심 장치.
+   */
+  ongoing?: boolean;
 };
 
-// Phase 1 프로토타입 데이터 — 10개 문명.
+// Phase 1 프로토타입 데이터 — 10개 역사 문명 + 진행 중인 현재 문명 1개.
 // 연대는 대중적으로 통용되는 근사치이며, 학술적으로는 이견이 있을 수 있음.
 export const civilizations: Civilization[] = [
   {
@@ -215,5 +222,27 @@ export const civilizations: Civilization[] = [
       { year: 1533, label: { ko: "스페인에 정복", en: "Conquered by Spain" } },
     ],
     color: "#7fa88c",
+  },
+  {
+    id: "global-industrial",
+    name: { ko: "글로벌 산업·기술 문명", en: "Global Industrial Civilization" },
+    region: "global",
+    startYear: 1760,
+    endYear: 2026,
+    peakStart: 1950,
+    peakEnd: 2026,
+    ongoing: true,
+    summary: {
+      ko: "특정 국가나 지역이 아니라 지구 전체가 하나의 산업·기술 시스템으로 묶인 시기. 앞의 10개 문명과 달리 지금까지 쇠퇴기가 관측된 적이 없다 — 다음이 어떻게 될지는 아직 아무도 모른다.",
+      en: "Not tied to any single nation or region — the era in which the entire planet became bound into one industrial-technological system. Unlike the ten civilizations above, it has never yet shown a decline. What comes next is not written.",
+    },
+    keyEvents: [
+      { year: 1760, label: { ko: "산업혁명 시작", en: "Industrial Revolution begins" } },
+      { year: 1945, label: { ko: "핵시대 개막", en: "Nuclear age begins" } },
+      { year: 1950, label: { ko: "대가속(Great Acceleration) 시작", en: "The Great Acceleration begins" } },
+      { year: 1972, label: { ko: "로마클럽 「성장의 한계」 보고서", en: "Club of Rome's Limits to Growth report" } },
+      { year: 2015, label: { ko: "파리기후협정", en: "Paris Agreement" } },
+    ],
+    color: "#b0563a",
   },
 ];

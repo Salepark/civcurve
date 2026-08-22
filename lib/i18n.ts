@@ -14,19 +14,21 @@ export const regionLabels: Record<Locale, Record<RegionKey, string>> = {
     mediterraneanEurope: "Mediterranean & Europe",
     southAsia: "South Asia",
     americas: "Americas",
+    global: "Global",
   },
   ko: {
     westAsia: "서아시아",
     mediterraneanEurope: "지중해·유럽",
     southAsia: "남아시아",
     americas: "아메리카",
+    global: "지구 전체",
   },
 };
 
 export type Dictionary = {
   meta: { title: string; description: string };
   page: { eyebrow: string; title: string; lede: string };
-  detail: { empty: string; peak: string };
+  detail: { empty: string; peak: string; present: string; ongoing: string };
   localeName: string;
 };
 
@@ -45,6 +47,8 @@ export const dictionaries: Record<Locale, Dictionary> = {
     detail: {
       empty: "Click a civilization in the timeline to see its details here.",
       peak: "Peak",
+      present: "present",
+      ongoing: "Ongoing — no decline observed yet",
     },
     localeName: "English",
   },
@@ -62,6 +66,8 @@ export const dictionaries: Record<Locale, Dictionary> = {
     detail: {
       empty: "타임라인에서 문명을 클릭하면 상세 정보가 여기 표시됩니다.",
       peak: "전성기",
+      present: "현재",
+      ongoing: "진행 중 — 아직 쇠퇴기가 관측되지 않음",
     },
     localeName: "한국어",
   },

@@ -1,6 +1,6 @@
 import { Civilization } from "@/data/civilizations";
 import { makeXScale, formatTick } from "@/lib/scale";
-import type { Locale } from "@/lib/i18n";
+import { dictionaries, type Locale } from "@/lib/i18n";
 
 const ROW_HEIGHT = 58;
 const BAND_HALF_HEIGHT = 14;
@@ -22,8 +22,22 @@ function bandPath(
   const h = BAND_HALF_HEIGHT;
 
   const growCtrlX = (xStart + xPeakStart) / 2;
-  const declineCtrlX = (xPeakEnd + xEnd) / 2;
 
+  if (civ.ongoing) {
+    // 쇠퇴기가 아직 없는 문명: 한 점으로 닫지 않고 현재 시점에서 수직으로
+    // 잘라낸다 — 다른 모든(닫힌) 곡선과의 대비가 시각적 메시지의 핵심.
+    return [
+      `M ${xStart},${y}`,
+      `Q ${growCtrlX},${y - h} ${xPeakStart},${y - h}`,
+      `L ${xEnd},${y - h}`,
+      `L ${xEnd},${y + h}`,
+      `L ${xPeakStart},${y + h}`,
+      `Q ${growCtrlX},${y + h} ${xStart},${y}`,
+      "Z",
+    ].join(" ");
+  }
+
+  const declineCtrlX = (xPeakEnd + xEnd) / 2;
   return [
     `M ${xStart},${y}`,
     `Q ${growCtrlX},${y - h} ${xPeakStart},${y - h}`,
@@ -73,19 +87,20 @@ export function Timeline({
         const isSelected = civ.id === selectedId;
         const isDimmed = selectedId !== null && !isSelected;
         const name = civ.name[locale];
+        const endLabel = civ.ongoing
+          ? dictionaries[locale].detail.present
+          : formatTick(civ.endYear, locale);
         return (
           <g
             key={civ.id}
             className="civ-row"
             data-dimmed={isDimmed}
+            data-ongoing={civ.ongoing ?? false}
             onClick={() => onSelect(civ.id)}
             tabIndex={0}
             role="button"
             aria-pressed={isSelected}
-            aria-label={`${name}, ${formatTick(civ.startYear, locale)} - ${formatTick(
-              civ.endYear,
-              locale
-            )}`}
+            aria-label={`${name}, ${formatTick(civ.startYear, locale)} - ${endLabel}`}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") onSelect(civ.id);
             }}
@@ -97,11 +112,21 @@ export function Timeline({
               stroke={isSelected ? civ.color : "none"}
               strokeWidth={isSelected ? 2 : 0}
             />
+            {civ.ongoing && (
+              <line
+                className="open-edge"
+                stroke={civ.color}
+                x1={x(civ.endYear)}
+                y1={y - BAND_HALF_HEIGHT}
+                x2={x(civ.endYear)}
+                y2={y + BAND_HALF_HEIGHT}
+              />
+            )}
             <text className="band-label" x={4} y={y - BAND_HALF_HEIGHT - 9}>
               {name}
               <tspan className="band-years mono">
                 {" "}
-                {formatTick(civ.startYear, locale)}–{formatTick(civ.endYear, locale)}
+                {formatTick(civ.startYear, locale)}–{endLabel}
               </tspan>
             </text>
           </g>
