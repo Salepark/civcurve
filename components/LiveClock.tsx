@@ -7,10 +7,20 @@ function pad(n: number) {
   return String(n).padStart(2, "0");
 }
 
+function formatOffset(d: Date) {
+  const totalMinutes = -d.getTimezoneOffset();
+  const sign = totalMinutes >= 0 ? "+" : "-";
+  const abs = Math.abs(totalMinutes);
+  return `${sign}${pad(Math.floor(abs / 60))}:${pad(abs % 60)}`;
+}
+
+// ISO 8601 표기 — en/ko 어느 로케일에서 봐도 동일하게 읽히는 국제 표준
+// 포맷이라 "이게 몇 월 며칠이지?" 하는 헷갈림이 없다. 오프셋까지 붙여
+// 방문자의 로컬 시간대를 명시한다.
 function formatNow(d: Date) {
-  return `${d.getFullYear()}.${pad(d.getMonth() + 1)}.${pad(d.getDate())} ${pad(
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(
     d.getHours()
-  )}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+  )}:${pad(d.getMinutes())}:${pad(d.getSeconds())}${formatOffset(d)}`;
 }
 
 // 브랜드 로고 옆에 붙는 실시간 시계.
