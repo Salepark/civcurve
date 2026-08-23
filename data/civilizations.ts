@@ -21,9 +21,13 @@ export type Civilization = {
   name: LocalizedText;
   region: RegionKey;
   startYear: number;
-  endYear: number;
+  /**
+   * "present"는 ongoing 문명 전용 sentinel — 하드코딩된 연도 대신
+   * 소비하는 쪽(resolveYear)에서 현재 연도로 치환한다. 다른 문명은 항상 number.
+   */
+  endYear: number | "present";
   peakStart: number;
-  peakEnd: number;
+  peakEnd: number | "present";
   summary: LocalizedText;
   keyEvents: KeyEvent[];
   color: string;
@@ -33,6 +37,8 @@ export type Civilization = {
    * 다른 모든 문명과의 시각적 대비(닫힌 곡선 vs 열린 곡선)가 핵심 장치.
    */
   ongoing?: boolean;
+  /** 학술적 합의가 아닌 해석적 구분 등, summary 아래 별도 안내 블록으로 보여줄 문구 */
+  note?: LocalizedText;
 };
 
 // Phase 1 프로토타입 데이터 — 10개 역사 문명 + 진행 중인 현재 문명 1개.
@@ -176,6 +182,28 @@ export const civilizations: Civilization[] = [
     color: "#c9a24b",
   },
   {
+    id: "mughal",
+    slug: "mughal-empire",
+    name: { ko: "무굴 제국", en: "Mughal Empire" },
+    region: "southAsia",
+    startYear: 1526,
+    endYear: 1857,
+    peakStart: 1600,
+    peakEnd: 1707,
+    summary: {
+      ko: "바부르가 파니파트 전투에서 승리하며 세운 왕조로, 악바르 대제 시기 강력한 중앙집권 체제를 구축했다. 아우랑제브 시기 인도 아대륙 대부분을 지배하며 최대 영토를 이뤘으나, 이후 지방 세력 이탈과 영국 동인도회사의 세력 확장으로 서서히 쇠퇴해 1857년 세포이 항쟁 이후 공식적으로 종식되었다.",
+      en: "Founded by Babur after his victory at the Battle of Panipat, the Mughal Empire built a powerful centralized state under Akbar. It reached its greatest territorial extent under Aurangzeb, ruling most of the Indian subcontinent, before gradually declining amid regional fragmentation and the rise of the British East India Company, formally ending after the 1857 Rebellion.",
+    },
+    keyEvents: [
+      { year: 1526, label: { ko: "파니파트 전투, 바부르가 무굴 제국 건국", en: "Battle of Panipat, Babur founds the Mughal Empire" } },
+      { year: 1556, label: { ko: "악바르 대제 즉위, 제국 체제 정비", en: "Akbar ascends the throne, consolidates the empire" } },
+      { year: 1631, label: { ko: "타지마할 건설 (샤 자한)", en: "Construction of the Taj Mahal under Shah Jahan" } },
+      { year: 1707, label: { ko: "아우랑제브 사망, 최대 영토 이후 쇠퇴 시작", en: "Death of Aurangzeb, decline begins after peak territorial extent" } },
+      { year: 1857, label: { ko: "세포이 항쟁, 무굴 제국 공식 종료", en: "Indian Rebellion of 1857, formal end of Mughal rule" } },
+    ],
+    color: "#b8894a",
+  },
+  {
     id: "abbasid",
     slug: "abbasid",
     name: { ko: "이슬람 황금기(압바스)", en: "Abbasid Caliphate" },
@@ -305,13 +333,17 @@ export const civilizations: Civilization[] = [
     name: { ko: "글로벌 산업·기술 문명", en: "Global Industrial Civilization" },
     region: "global",
     startYear: 1760,
-    endYear: 2026,
+    endYear: "present",
     peakStart: 1950,
-    peakEnd: 2026,
+    peakEnd: "present",
     ongoing: true,
     summary: {
       ko: "특정 국가나 지역이 아니라 지구 전체가 하나의 산업·기술 시스템으로 묶인 시기. 앞의 10개 문명과 달리 지금까지 쇠퇴기가 관측된 적이 없다 — 다음이 어떻게 될지는 아직 아무도 모른다.",
       en: "Not tied to any single nation or region — the era in which the entire planet became bound into one industrial-technological system. Unlike the ten civilizations above, it has never yet shown a decline. What comes next is not written.",
+    },
+    note: {
+      ko: "이 문명 구분은 학계에서 합의된 것이 아닌 하나의 해석입니다. 나머지 문명들과 달리 현재 진행 중이며, 쇠퇴 여부를 판단하기엔 이릅니다.",
+      en: "This civilization category is one interpretation, not an academic consensus. Unlike the others, it is still ongoing, and it is too early to assess any decline.",
     },
     keyEvents: [
       { year: 1760, label: { ko: "산업혁명 시작", en: "Industrial Revolution begins" } },

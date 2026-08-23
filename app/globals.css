@@ -312,6 +312,26 @@ h1 {
   min-width: 62px;
 }
 
+.civ-note {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  border-radius: 8px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.civ-note-icon {
+  flex: none;
+  color: var(--accent-ink);
+  line-height: 1.4;
+}
+
 .detail-view-full {
   display: inline-block;
   margin-top: 16px;

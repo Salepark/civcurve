@@ -1,5 +1,10 @@
 import type { Locale } from "@/lib/i18n";
 
+/** ongoing 문명의 endYear/peakEnd에 박힌 "present" sentinel을 현재 연도로 치환. */
+export function resolveYear(year: number | "present"): number {
+  return year === "present" ? new Date().getFullYear() : year;
+}
+
 /**
  * 연도(BC/AD) <-> SVG x좌표 변환.
  * 데이터 범위(minYear~maxYear)를 [0, width]에 선형으로 매핑한다.

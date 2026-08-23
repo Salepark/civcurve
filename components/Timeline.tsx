@@ -1,5 +1,5 @@
 import { Civilization } from "@/data/civilizations";
-import { makeXScale, formatTick } from "@/lib/scale";
+import { makeXScale, formatTick, resolveYear } from "@/lib/scale";
 import { dictionaries, type Locale } from "@/lib/i18n";
 
 const ROW_HEIGHT = 58;
@@ -17,8 +17,8 @@ function bandPath(
 ) {
   const xStart = x(civ.startYear);
   const xPeakStart = x(civ.peakStart);
-  const xPeakEnd = x(civ.peakEnd);
-  const xEnd = x(civ.endYear);
+  const xPeakEnd = x(resolveYear(civ.peakEnd));
+  const xEnd = x(resolveYear(civ.endYear));
   const h = BAND_HALF_HEIGHT;
 
   const growCtrlX = (xStart + xPeakStart) / 2;
@@ -62,7 +62,10 @@ export function Timeline({
   onSelect: (id: string) => void;
 }) {
   const minYear = Math.min(...civilizations.map((c) => c.startYear));
-  const maxYear = Math.max(...civilizations.map((c) => c.endYear), 2026);
+  const maxYear = Math.max(
+    ...civilizations.map((c) => resolveYear(c.endYear)),
+    resolveYear("present")
+  );
   const x = makeXScale(minYear, maxYear, CHART_WIDTH).toX;
 
   const sorted = [...civilizations].sort((a, b) => a.startYear - b.startYear);
@@ -89,7 +92,7 @@ export function Timeline({
         const name = civ.name[locale];
         const endLabel = civ.ongoing
           ? dictionaries[locale].detail.present
-          : formatTick(civ.endYear, locale);
+          : formatTick(resolveYear(civ.endYear), locale);
         return (
           <g
             key={civ.id}
@@ -116,9 +119,9 @@ export function Timeline({
               <line
                 className="open-edge"
                 stroke={civ.color}
-                x1={x(civ.endYear)}
+                x1={x(resolveYear(civ.endYear))}
                 y1={y - BAND_HALF_HEIGHT}
-                x2={x(civ.endYear)}
+                x2={x(resolveYear(civ.endYear))}
                 y2={y + BAND_HALF_HEIGHT}
               />
             )}

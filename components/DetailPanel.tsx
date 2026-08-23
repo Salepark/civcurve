@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Civilization } from "@/data/civilizations";
-import { formatTick } from "@/lib/scale";
+import { formatTick, resolveYear } from "@/lib/scale";
 import { dictionaries, regionLabels, type Locale } from "@/lib/i18n";
 
 export function DetailPanel({
@@ -22,8 +22,10 @@ export function DetailPanel({
 
   const name = civ.name[locale];
   const otherLocale: Locale = locale === "en" ? "ko" : "en";
-  const endLabel = civ.ongoing ? dict.detail.present : formatTick(civ.endYear, locale);
-  const peakEndLabel = civ.ongoing ? dict.detail.present : formatTick(civ.peakEnd, locale);
+  const endLabel = civ.ongoing ? dict.detail.present : formatTick(resolveYear(civ.endYear), locale);
+  const peakEndLabel = civ.ongoing
+    ? dict.detail.present
+    : formatTick(resolveYear(civ.peakEnd), locale);
 
   return (
     <div className="detail-panel" data-ongoing={civ.ongoing ?? false}>
@@ -42,6 +44,14 @@ export function DetailPanel({
         </span>
       </p>
       <p className="detail-summary">{civ.summary[locale]}</p>
+      {civ.note && (
+        <p className="civ-note">
+          <span className="civ-note-icon" aria-hidden="true">
+            ⓘ
+          </span>
+          <span>{civ.note[locale]}</span>
+        </p>
+      )}
       <ul className="detail-events">
         {civ.keyEvents.map((e) => (
           <li key={e.year + e.label[locale]}>
