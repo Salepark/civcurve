@@ -2,6 +2,7 @@ export type RegionKey =
   | "westAsia"
   | "mediterraneanEurope"
   | "southAsia"
+  | "eastAsia"
   | "americas"
   | "global";
 
@@ -204,6 +205,32 @@ export const civilizations: Civilization[] = [
     color: "#b8894a",
   },
   {
+    id: "persia",
+    slug: "persia",
+    name: { ko: "페르시아", en: "Persia" },
+    region: "westAsia",
+    startYear: -550,
+    endYear: 651,
+    peakStart: -518,
+    peakEnd: -465,
+    summary: {
+      ko: "키루스 대왕이 아케메네스 제국을 세우며 시작해, 파르티아를 거쳐 사산조까지 이어진 고대 페르시아 문명. 다리우스 1세와 크세르크세스 1세 시기 이집트부터 인더스강까지 이르는 고대 세계 최대 제국을 이뤘다. 이후 알렉산드로스의 정복과 왕조 교체를 겪으면서도 문화적 연속성을 유지했으나, 651년 이슬람 세력에게 정복되며 고대 페르시아 시대가 막을 내렸다.",
+      en: "Beginning with Cyrus the Great's founding of the Achaemenid Empire, ancient Persian civilization continued through the Parthian and Sassanid dynasties. Under Darius I and Xerxes I, it became the largest empire the ancient world had seen, stretching from Egypt to the Indus River. Despite Alexander's conquest and successive dynastic changes, it maintained cultural continuity until the Arab Muslim conquest ended the Sassanid era in 651 CE.",
+    },
+    note: {
+      ko: "이 곡선은 아케메네스·파르티아·사산조 등 여러 왕조를 하나로 압축한 단순화한 해석입니다. (로마·비잔틴과 동일한 방식)",
+      en: "This curve compresses several dynasties — Achaemenid, Parthian, Sassanid — into one simplified interpretation, following the same approach used for Rome & Byzantium.",
+    },
+    keyEvents: [
+      { year: -550, label: { ko: "키루스 대왕, 아케메네스 제국 건국", en: "Cyrus the Great founds the Achaemenid Empire" } },
+      { year: -480, label: { ko: "그리스-페르시아 전쟁 (마라톤, 테르모필레, 살라미스)", en: "Greco-Persian Wars (Marathon, Thermopylae, Salamis)" } },
+      { year: -330, label: { ko: "알렉산드로스, 아케메네스 제국 정복", en: "Alexander the Great conquers the Achaemenid Empire" } },
+      { year: 224, label: { ko: "사산조 페르시아 건국 (아르다시르 1세)", en: "Sassanid Empire founded by Ardashir I" } },
+      { year: 651, label: { ko: "이슬람 세력의 정복으로 사산조 멸망", en: "Fall of the Sassanid Empire to the Arab Muslim conquest" } },
+    ],
+    color: "#5c8a8f",
+  },
+  {
     id: "abbasid",
     slug: "abbasid",
     name: { ko: "이슬람 황금기(압바스)", en: "Abbasid Caliphate" },
@@ -304,6 +331,32 @@ export const civilizations: Civilization[] = [
       { year: 1368, label: { ko: "원 왕조 멸망, 몽골 초원으로 퇴각", en: "Fall of the Yuan Dynasty, Mongols retreat to the steppe" } },
     ],
     color: "#9a7b4f",
+  },
+  {
+    id: "china",
+    slug: "china",
+    name: { ko: "중국", en: "China" },
+    region: "eastAsia",
+    startYear: -221,
+    endYear: 1912,
+    peakStart: 600,
+    peakEnd: 1200,
+    summary: {
+      ko: "진시황의 중국 통일로 시작해 한·당·송·원·명·청으로 이어진 통일 왕조 체제의 연속. 당~송 시기 세계 최고 수준의 경제력과 기술, 문화를 이뤘다. 이후 여러 왕조 교체와 몽골 지배(원)를 거치면서도 통일 제국 체제가 유지되었으나, 1912년 신해혁명으로 청 왕조가 무너지며 2000년 넘게 이어진 제정 시대가 끝났다.",
+      en: "Beginning with Qin Shi Huang's unification of China, this curve traces the continuous imperial system through the Han, Tang, Song, Yuan, Ming, and Qing dynasties. It reached a cultural, economic, and technological golden age during the Tang–Song era. Despite dynastic changes and Mongol rule under the Yuan, the unified imperial system persisted for over two millennia until the 1912 Xinhai Revolution ended the Qing Dynasty and imperial rule.",
+    },
+    note: {
+      ko: "이 곡선은 진·한부터 청까지 여러 왕조를 하나로 압축한 단순화한 해석입니다. (로마·비잔틴과 동일한 방식)",
+      en: "This curve compresses multiple dynasties from Qin/Han through Qing into one simplified interpretation, following the same approach used for Rome & Byzantium.",
+    },
+    keyEvents: [
+      { year: -221, label: { ko: "진시황, 중국 통일", en: "Qin Shi Huang unifies China" } },
+      { year: -206, label: { ko: "한 왕조 건국, 제국 체제 확립", en: "Han Dynasty founded, imperial system consolidated" } },
+      { year: 618, label: { ko: "당 왕조 건국, 황금기 시작", en: "Tang Dynasty founded, golden age begins" } },
+      { year: 1279, label: { ko: "몽골, 남송 정복하고 원 왕조 수립", en: "Mongol conquest of Southern Song, establishment of the Yuan Dynasty" } },
+      { year: 1912, label: { ko: "신해혁명, 청 왕조 멸망", en: "Xinhai Revolution, fall of the Qing Dynasty" } },
+    ],
+    color: "#7d6a9c",
   },
   {
     id: "aztec",
