@@ -28,7 +28,8 @@ export const regionLabels: Record<Locale, Record<RegionKey, string>> = {
 export type Dictionary = {
   meta: { title: string; description: string };
   page: { eyebrow: string; title: string; lede: string };
-  detail: { empty: string; peak: string; present: string; ongoing: string };
+  detail: { empty: string; peak: string; present: string; ongoing: string; viewFull: string };
+  civPage: { back: string };
   localeName: string;
 };
 
@@ -49,6 +50,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
       peak: "Peak",
       present: "present",
       ongoing: "Ongoing — no decline observed yet",
+      viewFull: "View full page →",
+    },
+    civPage: {
+      back: "← Back to timeline",
     },
     localeName: "English",
   },
@@ -68,6 +73,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
       peak: "전성기",
       present: "현재",
       ongoing: "진행 중 — 아직 쇠퇴기가 관측되지 않음",
+      viewFull: "전체 보기 →",
+    },
+    civPage: {
+      back: "← 타임라인으로 돌아가기",
     },
     localeName: "한국어",
   },

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Civilization } from "@/data/civilizations";
 import { formatTick } from "@/lib/scale";
 import { dictionaries, regionLabels, type Locale } from "@/lib/i18n";
@@ -49,6 +50,9 @@ export function DetailPanel({
           </li>
         ))}
       </ul>
+      <Link className="detail-view-full" href={`/${locale}/civ/${civ.slug}`}>
+        {dict.detail.viewFull}
+      </Link>
     </div>
   );
 }

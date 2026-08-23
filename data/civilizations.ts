@@ -17,6 +17,7 @@ export type KeyEvent = {
 
 export type Civilization = {
   id: string;
+  slug: string;
   name: LocalizedText;
   region: RegionKey;
   startYear: number;
@@ -39,6 +40,7 @@ export type Civilization = {
 export const civilizations: Civilization[] = [
   {
     id: "mesopotamia",
+    slug: "mesopotamia",
     name: { ko: "메소포타미아", en: "Mesopotamia" },
     region: "westAsia",
     startYear: -3200,
@@ -58,6 +60,7 @@ export const civilizations: Civilization[] = [
   },
   {
     id: "egypt",
+    slug: "ancient-egypt",
     name: { ko: "고대 이집트", en: "Ancient Egypt" },
     region: "westAsia",
     startYear: -3100,
@@ -77,6 +80,7 @@ export const civilizations: Civilization[] = [
   },
   {
     id: "indus",
+    slug: "indus-valley",
     name: { ko: "인더스 문명", en: "Indus Valley" },
     region: "southAsia",
     startYear: -3300,
@@ -95,6 +99,7 @@ export const civilizations: Civilization[] = [
   },
   {
     id: "greece",
+    slug: "ancient-greece",
     name: { ko: "고대 그리스", en: "Ancient Greece" },
     region: "mediterraneanEurope",
     startYear: -800,
@@ -114,6 +119,7 @@ export const civilizations: Civilization[] = [
   },
   {
     id: "rome",
+    slug: "rome-byzantium",
     name: { ko: "로마·비잔틴", en: "Rome & Byzantium" },
     region: "mediterraneanEurope",
     startYear: -753,
@@ -133,6 +139,7 @@ export const civilizations: Civilization[] = [
   },
   {
     id: "maya",
+    slug: "maya",
     name: { ko: "마야", en: "Maya" },
     region: "americas",
     startYear: -1000,
@@ -151,6 +158,7 @@ export const civilizations: Civilization[] = [
   },
   {
     id: "gupta",
+    slug: "gupta",
     name: { ko: "굽타 왕조", en: "Gupta Empire" },
     region: "southAsia",
     startYear: 320,
@@ -169,6 +177,7 @@ export const civilizations: Civilization[] = [
   },
   {
     id: "abbasid",
+    slug: "abbasid",
     name: { ko: "이슬람 황금기(압바스)", en: "Abbasid Caliphate" },
     region: "westAsia",
     startYear: 750,
@@ -188,6 +197,7 @@ export const civilizations: Civilization[] = [
   },
   {
     id: "ottoman",
+    slug: "ottoman",
     name: { ko: "오스만 제국", en: "Ottoman Empire" },
     region: "westAsia",
     startYear: 1299,
@@ -207,6 +217,7 @@ export const civilizations: Civilization[] = [
   },
   {
     id: "inca",
+    slug: "inca",
     name: { ko: "잉카", en: "Inca Empire" },
     region: "americas",
     startYear: 1438,
@@ -224,7 +235,73 @@ export const civilizations: Civilization[] = [
     color: "#7fa88c",
   },
   {
+    id: "umayyad",
+    slug: "umayyad",
+    name: { ko: "우마이야 왕조", en: "Umayyad Caliphate" },
+    region: "westAsia",
+    startYear: 661,
+    endYear: 750,
+    peakStart: 705,
+    peakEnd: 740,
+    summary: {
+      ko: "무아위야 1세가 다마스쿠스를 수도로 세운 이슬람 최초의 세습 칼리프 왕조. 이베리아반도부터 중앙아시아까지 이슬람 영토를 최대로 확장했으나, 750년 압바스 혁명으로 전복되었다.",
+      en: "Established by Muawiyah I with Damascus as its capital, this was the first hereditary Islamic caliphate. It expanded Islamic territory to its greatest extent, from the Iberian Peninsula to Central Asia, before being overthrown by the Abbasid Revolution in 750.",
+    },
+    keyEvents: [
+      { year: 661, label: { ko: "무아위야 1세, 우마이야 칼리프국 수립", en: "Muawiyah I establishes the Umayyad Caliphate" } },
+      { year: 711, label: { ko: "이베리아반도 정복 시작", en: "Conquest of the Iberian Peninsula begins" } },
+      { year: 732, label: { ko: "투르-푸아티에 전투로 유럽 진출 저지", en: "Battle of Tours halts expansion into Europe" } },
+      { year: 750, label: { ko: "압바스 혁명으로 왕조 전복", en: "Abbasid Revolution overthrows the dynasty" } },
+    ],
+    color: "#6f9986",
+  },
+  {
+    id: "mongol",
+    slug: "mongol-empire",
+    name: { ko: "몽골 제국", en: "Mongol Empire" },
+    region: "westAsia",
+    startYear: 1206,
+    endYear: 1368,
+    peakStart: 1260,
+    peakEnd: 1300,
+    summary: {
+      ko: "칭기즈 칸이 몽골 부족을 통일하며 시작해 유라시아 대륙 대부분을 정복한 역사상 최대 규모의 인접 영토 제국. 쿠빌라이 칸 시기 남송을 정복하며 정점을 찍었고, 이후 여러 칸국으로 분열되며 원 왕조 멸망과 함께 쇠퇴했다.",
+      en: "Founded when Genghis Khan unified the Mongol tribes, it grew into the largest contiguous land empire in history. It peaked under Kublai Khan with the conquest of Southern Song China, then fragmented into successor khanates and declined with the fall of the Yuan Dynasty.",
+    },
+    keyEvents: [
+      { year: 1206, label: { ko: "칭기즈 칸, 몽골 부족 통일", en: "Genghis Khan unifies the Mongol tribes" } },
+      { year: 1220, label: { ko: "호라즘 제국 정복", en: "Conquest of the Khwarazmian Empire" } },
+      { year: 1258, label: { ko: "바그다드 함락, 압바스 칼리프국 멸망", en: "Fall of Baghdad, end of the Abbasid Caliphate" } },
+      { year: 1279, label: { ko: "쿠빌라이 칸, 남송 정복하고 중국 통일", en: "Kublai Khan conquers Southern Song, unifying China" } },
+      { year: 1368, label: { ko: "원 왕조 멸망, 몽골 초원으로 퇴각", en: "Fall of the Yuan Dynasty, Mongols retreat to the steppe" } },
+    ],
+    color: "#9a7b4f",
+  },
+  {
+    id: "aztec",
+    slug: "aztec",
+    name: { ko: "아스텍", en: "Aztec" },
+    region: "americas",
+    startYear: 1325,
+    endYear: 1521,
+    peakStart: 1440,
+    peakEnd: 1520,
+    summary: {
+      ko: "테노치티틀란 건설로 시작해 삼각동맹 결성 이후 중앙아메리카 최강 세력으로 성장한 문명. 목테수마 2세 시기 절정에 달했으나 에르난 코르테스의 스페인 원정대에게 정복당하며 급격히 멸망했다.",
+      en: "Beginning with the founding of Tenochtitlan, the Aztec grew into the dominant power in central Mexico after forming the Triple Alliance. It reached its height under Moctezuma II before being abruptly conquered by Hernán Cortés's Spanish expedition.",
+    },
+    keyEvents: [
+      { year: 1325, label: { ko: "테노치티틀란 건설", en: "Founding of Tenochtitlan" } },
+      { year: 1428, label: { ko: "삼각동맹 결성, 아스텍 제국 성립", en: "Formation of the Triple Alliance, birth of the Aztec Empire" } },
+      { year: 1487, label: { ko: "대신전(템플로 마요르) 봉헌", en: "Dedication of the Great Temple (Templo Mayor)" } },
+      { year: 1519, label: { ko: "에르난 코르테스 도착", en: "Arrival of Hernán Cortés" } },
+      { year: 1521, label: { ko: "테노치티틀란 함락", en: "Fall of Tenochtitlan" } },
+    ],
+    color: "#7a9b5a",
+  },
+  {
     id: "global-industrial",
+    slug: "global-industrial",
     name: { ko: "글로벌 산업·기술 문명", en: "Global Industrial Civilization" },
     region: "global",
     startYear: 1760,
