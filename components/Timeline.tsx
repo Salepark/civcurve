@@ -4,9 +4,10 @@ import { dictionaries, type Locale } from "@/lib/i18n";
 
 const ROW_HEIGHT = 66;
 const BAND_HALF_HEIGHT = 14;
-const TOP_PADDING = 44;
-const AXIS_GAP = 26;
-const AXIS_LABEL_GAP = 18;
+const AXIS_Y = 20; // 시간축을 맨 위에 고정 — 스캔되는 대상(문명 곡선)이 아래에 있으니 축은 위에서 바로 보여야 이해가 쉽다
+const AXIS_LABEL_GAP = 16;
+const TOP_PADDING = 90; // 축 눈금 라벨과 첫 행 라벨이 겹치지 않을 여유
+const BOTTOM_PADDING = 24;
 const CHART_WIDTH = 960;
 const TICK_STEP = 500; // 500년 단위 눈금
 
@@ -69,8 +70,9 @@ export function Timeline({
   const x = makeXScale(minYear, maxYear, CHART_WIDTH).toX;
 
   const sorted = [...civilizations].sort((a, b) => a.startYear - b.startYear);
-  const axisY = sorted.length * ROW_HEIGHT + TOP_PADDING + AXIS_GAP;
-  const svgHeight = axisY + AXIS_LABEL_GAP + 16;
+  const lastRowY = TOP_PADDING + (sorted.length - 1) * ROW_HEIGHT;
+  const svgHeight = lastRowY + BAND_HALF_HEIGHT + BOTTOM_PADDING;
+  const playheadTop = AXIS_Y + AXIS_LABEL_GAP + 10;
 
   const ticks: number[] = [];
   const firstTick = Math.ceil(minYear / TICK_STEP) * TICK_STEP;
@@ -90,6 +92,17 @@ export function Timeline({
           <rect className="intro-clip-rect" x={0} y={0} width={CHART_WIDTH} height={svgHeight} />
         </clipPath>
       </defs>
+
+      <line className="axis-line" x1={0} y1={AXIS_Y} x2={CHART_WIDTH} y2={AXIS_Y} />
+      {ticks.map((year) => (
+        <g key={year} className="tick">
+          <line x1={x(year)} y1={AXIS_Y - 4} x2={x(year)} y2={AXIS_Y + 4} />
+          <text className="tick-label mono" x={x(year)} y={AXIS_Y + AXIS_LABEL_GAP} textAnchor="middle">
+            {formatTick(year, locale)}
+          </text>
+        </g>
+      ))}
+
       {sorted.map((civ, i) => {
         const y = TOP_PADDING + i * ROW_HEIGHT;
         const isSelected = civ.id === selectedId;
@@ -143,17 +156,14 @@ export function Timeline({
         );
       })}
 
-      <line className="axis-line" x1={0} y1={axisY} x2={CHART_WIDTH} y2={axisY} />
-      {ticks.map((year) => (
-        <g key={year} className="tick">
-          <line x1={x(year)} y1={axisY - 4} x2={x(year)} y2={axisY + 4} />
-          <text className="tick-label mono" x={x(year)} y={axisY + AXIS_LABEL_GAP} textAnchor="middle">
-            {formatTick(year, locale)}
-          </text>
-        </g>
-      ))}
-
-      <rect className="intro-playhead" x={0} y={0} width={2} height={axisY} aria-hidden="true" />
+      <rect
+        className="intro-playhead"
+        x={0}
+        y={playheadTop}
+        width={2}
+        height={svgHeight - playheadTop}
+        aria-hidden="true"
+      />
     </svg>
   );
 }
