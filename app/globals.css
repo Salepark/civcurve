@@ -231,6 +231,54 @@ h1 {
   fill: var(--ink-soft);
 }
 
+/*
+ * 인트로 스윕: 최초 마운트 시 곡선 그룹이 왼쪽→오른쪽으로 한 번만 드러난다.
+ * 기본값(no-preference 미디어쿼리 밖)은 항상 "완전히 열린" 상태 —
+ * prefers-reduced-motion 사용자는 애니메이션 없이 바로 최종 상태를 본다.
+ */
+.intro-clip-rect {
+  width: 100%;
+}
+
+.intro-playhead {
+  fill: var(--gold);
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes intro-sweep {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes intro-playhead-sweep {
+    0% {
+      x: 0%;
+      opacity: 0.9;
+    }
+    92% {
+      opacity: 0.9;
+    }
+    100% {
+      x: 100%;
+      opacity: 0;
+    }
+  }
+
+  .intro-clip-rect {
+    width: 0%;
+    animation: intro-sweep 3s ease-out forwards;
+  }
+
+  .intro-playhead {
+    animation: intro-playhead-sweep 3s ease-out forwards;
+  }
+}
+
 .detail-panel {
   flex: 0 0 300px;
   background: var(--bg-raised);

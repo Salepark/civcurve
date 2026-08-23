@@ -85,6 +85,11 @@ export function Timeline({
       role="img"
       aria-label={locale === "en" ? "Civilization curve timeline" : "문명 생명곡선 타임라인"}
     >
+      <defs>
+        <clipPath id="intro-reveal-clip">
+          <rect className="intro-clip-rect" x={0} y={0} width={CHART_WIDTH} height={svgHeight} />
+        </clipPath>
+      </defs>
       {sorted.map((civ, i) => {
         const y = TOP_PADDING + i * ROW_HEIGHT;
         const isSelected = civ.id === selectedId;
@@ -114,6 +119,7 @@ export function Timeline({
               className="band"
               stroke={isSelected ? civ.color : "none"}
               strokeWidth={isSelected ? 2 : 0}
+              clipPath="url(#intro-reveal-clip)"
             />
             {civ.ongoing && (
               <line
@@ -123,6 +129,7 @@ export function Timeline({
                 y1={y - BAND_HALF_HEIGHT}
                 x2={x(resolveYear(civ.endYear))}
                 y2={y + BAND_HALF_HEIGHT}
+                clipPath="url(#intro-reveal-clip)"
               />
             )}
             <text className="band-label" x={4} y={y - BAND_HALF_HEIGHT - 9}>
@@ -145,6 +152,8 @@ export function Timeline({
           </text>
         </g>
       ))}
+
+      <rect className="intro-playhead" x={0} y={0} width={2} height={axisY} aria-hidden="true" />
     </svg>
   );
 }
