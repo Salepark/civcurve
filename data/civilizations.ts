@@ -3,6 +3,7 @@ export type RegionKey =
   | "mediterraneanEurope"
   | "southAsia"
   | "eastAsia"
+  | "africa"
   | "americas"
   | "global";
 
@@ -125,6 +126,27 @@ export const civilizations: Civilization[] = [
     color: "#5f9482",
   },
   {
+    id: "phoenicia-carthage",
+    slug: "phoenicia-carthage",
+    name: { ko: "페니키아·카르타고", en: "Phoenicia–Carthage" },
+    region: "mediterraneanEurope",
+    startYear: -1200,
+    endYear: -146,
+    peakStart: -300,
+    peakEnd: -202,
+    summary: {
+      ko: "티레, 시돈 등 페니키아 도시국가의 지중해 무역망에서 시작해, 식민도시 카르타고가 서지중해 최강 세력으로 성장한 문명. 한니발의 알프스 원정으로 대표되는 2차 포에니 전쟁 시기 로마와 패권을 다퉜으나, 3차 포에니 전쟁에서 로마에 완전히 멸망했다.",
+      en: "Beginning with the Mediterranean trade networks of Phoenician city-states like Tyre and Sidon, this civilization saw the colony of Carthage grow into the dominant power of the western Mediterranean. It rivaled Rome for supremacy during the Second Punic War, epitomized by Hannibal's crossing of the Alps, before being utterly destroyed by Rome in the Third Punic War.",
+    },
+    keyEvents: [
+      { year: -1200, label: { ko: "페니키아 도시국가 무역망 형성 시작", en: "Phoenician city-states begin building Mediterranean trade networks" } },
+      { year: -814, label: { ko: "카르타고 건설", en: "Founding of Carthage" } },
+      { year: -218, label: { ko: "2차 포에니 전쟁, 한니발의 알프스 원정", en: "Second Punic War, Hannibal crosses the Alps" } },
+      { year: -146, label: { ko: "3차 포에니 전쟁, 카르타고 완전 파괴", en: "Third Punic War, complete destruction of Carthage" } },
+    ],
+    color: "#7a4f6d",
+  },
+  {
     id: "rome",
     slug: "rome-byzantium",
     name: { ko: "로마·비잔틴", en: "Rome & Byzantium" },
@@ -203,6 +225,27 @@ export const civilizations: Civilization[] = [
       { year: 1857, label: { ko: "세포이 항쟁, 무굴 제국 공식 종료", en: "Indian Rebellion of 1857, formal end of Mughal rule" } },
     ],
     color: "#b8894a",
+  },
+  {
+    id: "khmer",
+    slug: "khmer",
+    name: { ko: "크메르(앙코르)", en: "Khmer (Angkor)" },
+    region: "southAsia",
+    startYear: 802,
+    endYear: 1431,
+    peakStart: 1113,
+    peakEnd: 1220,
+    summary: {
+      ko: "자야바르만 2세가 앙코르를 중심으로 세운 제국으로, 수리야바르만 2세 시기 앙코르와트를 건설하며 전성기를 맞았다. 이후 자야바르만 7세 때 영토를 최대로 확장했으나, 지속된 전쟁과 주변 세력의 압박으로 쇠퇴해 1431년 아유타야에 함락되었다.",
+      en: "Founded by Jayavarman II centered on Angkor, the Khmer Empire reached its height under Suryavarman II, who built Angkor Wat. It expanded to its greatest extent under Jayavarman VII before declining under sustained warfare and regional pressure, falling to Ayutthaya in 1431.",
+    },
+    keyEvents: [
+      { year: 802, label: { ko: "자야바르만 2세, 크메르 제국 건국", en: "Jayavarman II founds the Khmer Empire" } },
+      { year: 1113, label: { ko: "수리야바르만 2세 치세, 앙코르와트 건설", en: "Reign of Suryavarman II, construction of Angkor Wat" } },
+      { year: 1181, label: { ko: "자야바르만 7세, 최대 영토 확장", en: "Jayavarman VII expands the empire to its greatest extent" } },
+      { year: 1431, label: { ko: "아유타야에 앙코르 함락", en: "Fall of Angkor to Ayutthaya" } },
+    ],
+    color: "#7f9463",
   },
   {
     id: "persia",
@@ -357,6 +400,52 @@ export const civilizations: Civilization[] = [
       { year: 1912, label: { ko: "신해혁명, 청 왕조 멸망", en: "Xinhai Revolution, fall of the Qing Dynasty" } },
     ],
     color: "#7d6a9c",
+  },
+  {
+    id: "aksum",
+    slug: "aksum",
+    name: { ko: "아크숨", en: "Aksum" },
+    region: "africa",
+    startYear: 100,
+    endYear: 960,
+    peakStart: 300,
+    peakEnd: 400,
+    summary: {
+      ko: "홍해 무역을 기반으로 성장한 고대 아프리카의 강국으로, 에자나 왕 시기 기독교를 받아들이고 영토를 크게 확장하며 전성기를 맞았다. 이후 이슬람 세력의 홍해 무역로 장악과 내부 요인으로 서서히 쇠퇴했다.",
+      en: "A powerful ancient African kingdom built on Red Sea trade, Aksum reached its height under King Ezana, who adopted Christianity and expanded its territory. It gradually declined as Islamic powers took control of Red Sea trade routes.",
+    },
+    keyEvents: [
+      { year: 100, label: { ko: "아크숨 왕국 성장 시작", en: "Kingdom of Aksum begins to rise" } },
+      { year: 330, label: { ko: "에자나 왕, 기독교 국교화", en: "King Ezana adopts Christianity as the state religion" } },
+      { year: 550, label: { ko: "홍해·아라비아 무역 지배력 정점", en: "Peak of dominance over Red Sea and Arabian trade" } },
+      { year: 960, label: { ko: "구디트 침공 등으로 쇠퇴, 왕국 해체", en: "Decline and dissolution following invasions such as Gudit's" } },
+    ],
+    color: "#a15d3f",
+  },
+  {
+    id: "mali-songhai",
+    slug: "mali-songhai",
+    name: { ko: "말리·송가이", en: "Mali–Songhai" },
+    region: "africa",
+    startYear: 1235,
+    endYear: 1591,
+    peakStart: 1312,
+    peakEnd: 1528,
+    summary: {
+      ko: "순디아타 케이타가 세운 말리 제국은 만사 무사 시기 세계 최고 부유국 중 하나로 성장했고, 이후 송가이 제국이 그 영향력을 이어받아 아스키아 무함마드 시기 서아프리카 최대 제국으로 확장했다. 1591년 모로코군에 톤디비 전투에서 패배하며 서아프리카 제국 시대가 막을 내렸다.",
+      en: "Founded by Sundiata Keita, the Mali Empire grew into one of the wealthiest states in the world under Mansa Musa. The Songhai Empire later inherited its influence, expanding to become West Africa's largest empire under Askia Muhammad, before Moroccan forces ended the era at the Battle of Tondibi in 1591.",
+    },
+    note: {
+      ko: "이 곡선은 말리 제국과 송가이 제국을 하나로 압축한 단순화한 해석입니다. (로마·비잔틴과 동일한 방식)",
+      en: "This curve compresses the Mali and Songhai Empires into one simplified interpretation, following the same approach used for Rome & Byzantium.",
+    },
+    keyEvents: [
+      { year: 1235, label: { ko: "순디아타 케이타, 말리 제국 건국", en: "Sundiata Keita founds the Mali Empire" } },
+      { year: 1324, label: { ko: "만사 무사의 메카 순례 (세계적 부의 상징)", en: "Mansa Musa's pilgrimage to Mecca, symbol of Mali's wealth" } },
+      { year: 1468, label: { ko: "송가이, 순니 알리 시기 통북투 장악", en: "Songhai captures Timbuktu under Sunni Ali" } },
+      { year: 1591, label: { ko: "톤디비 전투, 모로코에 송가이 멸망", en: "Battle of Tondibi, fall of Songhai to Morocco" } },
+    ],
+    color: "#4f6d8f",
   },
   {
     id: "aztec",

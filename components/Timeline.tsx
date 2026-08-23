@@ -2,9 +2,9 @@ import { Civilization } from "@/data/civilizations";
 import { makeXScale, formatTick, resolveYear } from "@/lib/scale";
 import { dictionaries, type Locale } from "@/lib/i18n";
 
-const ROW_HEIGHT = 58;
+const ROW_HEIGHT = 66;
 const BAND_HALF_HEIGHT = 14;
-const TOP_PADDING = 40;
+const TOP_PADDING = 44;
 const AXIS_GAP = 26;
 const AXIS_LABEL_GAP = 18;
 const CHART_WIDTH = 960;

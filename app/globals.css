@@ -211,12 +211,12 @@ h1 {
 
 .band-label {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 11px;
+  font-size: 14px;
   fill: var(--ink);
 }
 
 .band-years {
-  font-size: 9.5px;
+  font-size: 12px;
   fill: var(--ink-soft);
 }
 
@@ -227,7 +227,7 @@ h1 {
 }
 
 .tick-label {
-  font-size: 10px;
+  font-size: 13px;
   fill: var(--ink-soft);
 }
 
