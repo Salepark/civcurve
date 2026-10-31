@@ -55,11 +55,13 @@ export function Timeline({
   civilizations,
   selectedId,
   locale,
+  ariaLabel,
   onSelect,
 }: {
   civilizations: Civilization[];
   selectedId: string | null;
   locale: Locale;
+  ariaLabel?: string;
   onSelect: (id: string) => void;
 }) {
   const minYear = Math.min(...civilizations.map((c) => c.startYear));
@@ -85,7 +87,7 @@ export function Timeline({
       className="timeline"
       viewBox={`0 0 ${CHART_WIDTH} ${svgHeight}`}
       role="img"
-      aria-label={locale === "en" ? "Civilization curve timeline" : "문명 생명곡선 타임라인"}
+      aria-label={ariaLabel ?? (locale === "en" ? "Civilization curve timeline" : "문명 생명곡선 타임라인")}
     >
       <defs>
         <clipPath id="intro-reveal-clip">

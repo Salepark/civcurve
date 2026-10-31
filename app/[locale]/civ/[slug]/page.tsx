@@ -64,10 +64,12 @@ export default async function CivPage({
         {dict.civPage.back}
       </Link>
       <div className="civ-page-panel" data-ongoing={civ.ongoing ?? false}>
-        <span className="detail-region mono">
-          {regionLabels[locale][civ.region]}
-          {civ.ongoing && <span className="detail-ongoing-tag">{dict.detail.ongoing}</span>}
-        </span>
+        {(civ.region || civ.ongoing) && (
+          <span className="detail-region mono">
+            {civ.region && regionLabels[locale][civ.region]}
+            {civ.ongoing && <span className="detail-ongoing-tag">{dict.detail.ongoing}</span>}
+          </span>
+        )}
         <h1>
           {name} <span className="civ-page-en-name">{civ.name[otherLocale]}</span>
         </h1>

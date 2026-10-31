@@ -31,7 +31,13 @@ export const regionLabels: Record<Locale, Record<RegionKey, string>> = {
 
 export type Dictionary = {
   meta: { title: string; description: string };
-  page: { eyebrow: string; title: string; lede: string };
+  nav: { civilizations: string; faith: string };
+  page: {
+    eyebrow: string;
+    title: string;
+    lede: string;
+    faith: { eyebrow: string; title: string; lede: string };
+  };
   detail: { empty: string; peak: string; present: string; ongoing: string; viewFull: string };
   civPage: { back: string };
   localeName: string;
@@ -48,7 +54,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
       eyebrow: "CivCurve · Phase 1 prototype",
       title: "CivCurve",
       lede: "The horizontal axis is time (3200 BCE to today). Each curve traces one civilization from birth to disappearance — the widest point is its peak. Click a civilization for details.",
+      faith: {
+        eyebrow: "FaithCurve · Phase 1 prototype",
+        title: "FaithCurve",
+        lede: "The horizontal axis is time (2100 BCE to today). Each band traces one era of biblical and church history from its beginning to the present. Branching lanes — Israel/Judah, then Catholic/Orthodox/Protestant — show historical divisions without ranking any of them. Click an era for details.",
+      },
     },
+    nav: { civilizations: "Civilizations", faith: "Faith History" },
     detail: {
       empty: "Click a civilization in the timeline to see its details here.",
       peak: "Peak",
@@ -71,7 +83,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
       eyebrow: "문명 생명곡선 · Phase 1 프로토타입",
       title: "문명 생명곡선",
       lede: "가로축은 시간(BC3200~현재), 각 곡선은 문명의 탄생부터 소멸까지를 나타냅니다. 곡선이 넓어지는 구간이 전성기입니다. 문명을 클릭하면 상세 정보를 볼 수 있습니다.",
+      faith: {
+        eyebrow: "FaithCurve · Phase 1 프로토타입",
+        title: "FaithCurve",
+        lede: "가로축은 시간(BC2100~현재), 각 밴드는 성경과 교회사의 한 시대를 탄생부터 오늘까지로 나타냅니다. 갈라지는 레인(이스라엘/유다, 로마가톨릭/동방정교회/개신교)은 역사적 분기를 가치 판단 없이 보여줍니다. 시대를 클릭하면 상세 정보를 볼 수 있습니다.",
+      },
     },
+    nav: { civilizations: "문명", faith: "기독교 역사" },
     detail: {
       empty: "타임라인에서 문명을 클릭하면 상세 정보가 여기 표시됩니다.",
       peak: "전성기",
