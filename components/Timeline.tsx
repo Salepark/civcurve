@@ -1,5 +1,5 @@
 import { Civilization } from "@/data/civilizations";
-import { makeXScale, formatTick, resolveYear } from "@/lib/scale";
+import { makeXScale, formatTick, resolveYear, effectiveEndYear } from "@/lib/scale";
 import { dictionaries, type Locale } from "@/lib/i18n";
 
 const ROW_HEIGHT = 66;
@@ -19,7 +19,7 @@ function bandPath(
   const xStart = x(civ.startYear);
   const xPeakStart = x(civ.peakStart);
   const xPeakEnd = x(resolveYear(civ.peakEnd));
-  const xEnd = x(resolveYear(civ.endYear));
+  const xEnd = x(effectiveEndYear(civ));
   const h = BAND_HALF_HEIGHT;
 
   const growCtrlX = (xStart + xPeakStart) / 2;
@@ -66,7 +66,7 @@ export function Timeline({
 }) {
   const minYear = Math.min(...civilizations.map((c) => c.startYear));
   const maxYear = Math.max(
-    ...civilizations.map((c) => resolveYear(c.endYear)),
+    ...civilizations.map((c) => effectiveEndYear(c)),
     resolveYear("present")
   );
   const x = makeXScale(minYear, maxYear, CHART_WIDTH).toX;
@@ -140,9 +140,9 @@ export function Timeline({
               <line
                 className="open-edge"
                 stroke={civ.color}
-                x1={x(resolveYear(civ.endYear))}
+                x1={x(effectiveEndYear(civ))}
                 y1={y - BAND_HALF_HEIGHT}
-                x2={x(resolveYear(civ.endYear))}
+                x2={x(effectiveEndYear(civ))}
                 y2={y + BAND_HALF_HEIGHT}
                 clipPath="url(#intro-reveal-clip)"
               />
