@@ -31,12 +31,13 @@ export const regionLabels: Record<Locale, Record<RegionKey, string>> = {
 
 export type Dictionary = {
   meta: { title: string; description: string };
-  nav: { civilizations: string; faith: string };
+  nav: { civilizations: string; faith: string; art: string };
   page: {
     eyebrow: string;
     title: string;
     lede: string;
     faith: { eyebrow: string; title: string; lede: string };
+    art: { eyebrow: string; title: string; lede: string };
   };
   detail: { empty: string; peak: string; present: string; ongoing: string; viewFull: string };
   civPage: { back: string };
@@ -59,8 +60,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
         title: "FaithCurve",
         lede: "The horizontal axis is time (2100 BCE to today). Each band traces one era of biblical and church history from its beginning to the present. Branching lanes — Israel/Judah, then Catholic/Orthodox/Protestant — show historical divisions without ranking any of them. Click an era for details.",
       },
+      art: {
+        eyebrow: "ArtCurve · Phase 1 prototype",
+        title: "ArtCurve",
+        lede: "The horizontal axis is time (800 BCE to today). Each band traces one Western art movement from its beginning to the present — ending with AI art, whose place in this history is still being written. Click a movement for details.",
+      },
     },
-    nav: { civilizations: "Civilizations", faith: "Faith History" },
+    nav: { civilizations: "Civilizations", faith: "Faith History", art: "Art Movements" },
     detail: {
       empty: "Click a civilization in the timeline to see its details here.",
       peak: "Peak",
@@ -88,8 +94,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
         title: "FaithCurve",
         lede: "가로축은 시간(BC2100~현재), 각 밴드는 성경과 교회사의 한 시대를 탄생부터 오늘까지로 나타냅니다. 갈라지는 레인(이스라엘/유다, 로마가톨릭/동방정교회/개신교)은 역사적 분기를 가치 판단 없이 보여줍니다. 시대를 클릭하면 상세 정보를 볼 수 있습니다.",
       },
+      art: {
+        eyebrow: "ArtCurve · Phase 1 프로토타입",
+        title: "ArtCurve",
+        lede: "가로축은 시간(BC800~현재), 각 밴드는 서양 미술사의 한 사조를 탄생부터 오늘까지로 나타냅니다. AI 아트로 끝나는데, 이 사조가 역사에서 어떤 자리를 차지할지는 아직 쓰이는 중입니다. 사조를 클릭하면 상세 정보를 볼 수 있습니다.",
+      },
     },
-    nav: { civilizations: "문명", faith: "기독교 역사" },
+    nav: { civilizations: "문명", faith: "기독교 역사", art: "미술 사조" },
     detail: {
       empty: "타임라인에서 문명을 클릭하면 상세 정보가 여기 표시됩니다.",
       peak: "전성기",
