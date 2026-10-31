@@ -31,13 +31,14 @@ export const regionLabels: Record<Locale, Record<RegionKey, string>> = {
 
 export type Dictionary = {
   meta: { title: string; description: string };
-  nav: { civilizations: string; faith: string; art: string };
+  nav: { civilizations: string; faith: string; art: string; science: string };
   page: {
     eyebrow: string;
     title: string;
     lede: string;
     faith: { eyebrow: string; title: string; lede: string };
     art: { eyebrow: string; title: string; lede: string };
+    science: { eyebrow: string; title: string; lede: string };
   };
   detail: { empty: string; peak: string; present: string; ongoing: string; viewFull: string };
   civPage: { back: string };
@@ -65,8 +66,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
         title: "ArtCurve",
         lede: "The horizontal axis is time (800 BCE to today). Each band traces one Western art movement from its beginning to the present — ending with AI art, whose place in this history is still being written. Click a movement for details.",
       },
+      science: {
+        eyebrow: "ScienceCurve · Phase 1 prototype",
+        title: "ScienceCurve",
+        lede: "The horizontal axis is time (3000 BCE to today). Each band traces one chapter in the history of science — ideas and discoveries, not industry or engineering — from its beginning to the present. Branching lanes — medieval Europe and the Islamic Golden Age, then 19th-century biology and physics — show parallel traditions without ranking either. Click a chapter for details.",
+      },
     },
-    nav: { civilizations: "Civilizations", faith: "Faith History", art: "Art Movements" },
+    nav: { civilizations: "Civilizations", faith: "Faith History", art: "Art Movements", science: "Science History" },
     detail: {
       empty: "Click a civilization in the timeline to see its details here.",
       peak: "Peak",
@@ -99,8 +105,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
         title: "ArtCurve",
         lede: "가로축은 시간(BC800~현재), 각 밴드는 서양 미술사의 한 사조를 탄생부터 오늘까지로 나타냅니다. AI 아트로 끝나는데, 이 사조가 역사에서 어떤 자리를 차지할지는 아직 쓰이는 중입니다. 사조를 클릭하면 상세 정보를 볼 수 있습니다.",
       },
+      science: {
+        eyebrow: "ScienceCurve · Phase 1 프로토타입",
+        title: "ScienceCurve",
+        lede: "가로축은 시간(BC3000~현재), 각 밴드는 산업이나 공학이 아니라 과학적 발견과 사고 자체의 한 장을 탄생부터 오늘까지로 나타냅니다. 갈라지는 레인(중세 유럽/이슬람 황금기, 19세기 생물학/물리학)은 병행하는 전통을 우열 없이 보여줍니다. 장을 클릭하면 상세 정보를 볼 수 있습니다.",
+      },
     },
-    nav: { civilizations: "문명", faith: "기독교 역사", art: "미술 사조" },
+    nav: { civilizations: "문명", faith: "기독교 역사", art: "미술 사조", science: "과학사" },
     detail: {
       empty: "타임라인에서 문명을 클릭하면 상세 정보가 여기 표시됩니다.",
       peak: "전성기",
