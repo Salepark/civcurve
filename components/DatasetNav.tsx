@@ -6,13 +6,14 @@ export function DatasetNav({
   active,
 }: {
   locale: Locale;
-  active: "civilizations" | "faith" | "art";
+  active: "civilizations" | "faith" | "art" | "science";
 }) {
   const dict = dictionaries[locale];
-  const items: { key: "civilizations" | "faith" | "art"; label: string; href: string }[] = [
+  const items: { key: "civilizations" | "faith" | "art" | "science"; label: string; href: string }[] = [
     { key: "civilizations", label: dict.nav.civilizations, href: `/${locale}` },
     { key: "faith", label: dict.nav.faith, href: `/${locale}/faith` },
     { key: "art", label: dict.nav.art, href: `/${locale}/art` },
+    { key: "science", label: dict.nav.science, href: `/${locale}/science` },
   ];
   return (
     <nav className="dataset-nav locale-switch mono" aria-label="Dataset">
