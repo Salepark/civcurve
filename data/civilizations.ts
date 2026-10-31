@@ -19,9 +19,9 @@ export type KeyEvent = {
 
 export type Civilization = {
   id: string;
-  slug: string;
+  slug?: string;
   name: LocalizedText;
-  region: RegionKey;
+  region?: RegionKey;
   startYear: number;
   /**
    * "present"는 ongoing 문명 전용 sentinel — 하드코딩된 연도 대신

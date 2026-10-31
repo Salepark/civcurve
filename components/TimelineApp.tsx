@@ -9,9 +9,11 @@ import type { Locale } from "@/lib/i18n";
 export function TimelineApp({
   civilizations,
   locale,
+  ariaLabel,
 }: {
   civilizations: Civilization[];
   locale: Locale;
+  ariaLabel?: string;
 }) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const selected = civilizations.find((c) => c.id === selectedId) ?? null;
@@ -23,6 +25,7 @@ export function TimelineApp({
           civilizations={civilizations}
           selectedId={selectedId}
           locale={locale}
+          ariaLabel={ariaLabel}
           onSelect={(id) => setSelectedId(id === selectedId ? null : id)}
         />
       </div>

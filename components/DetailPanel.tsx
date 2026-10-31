@@ -29,10 +29,12 @@ export function DetailPanel({
 
   return (
     <div className="detail-panel" data-ongoing={civ.ongoing ?? false}>
-      <span className="detail-region mono">
-        {regionLabels[locale][civ.region]}
-        {civ.ongoing && <span className="detail-ongoing-tag">{dict.detail.ongoing}</span>}
-      </span>
+      {(civ.region || civ.ongoing) && (
+        <span className="detail-region mono">
+          {civ.region && regionLabels[locale][civ.region]}
+          {civ.ongoing && <span className="detail-ongoing-tag">{dict.detail.ongoing}</span>}
+        </span>
+      )}
       <h2>
         {name} <span className="detail-en">{civ.name[otherLocale]}</span>
       </h2>
@@ -60,9 +62,11 @@ export function DetailPanel({
           </li>
         ))}
       </ul>
-      <Link className="detail-view-full" href={`/${locale}/civ/${civ.slug}`}>
-        {dict.detail.viewFull}
-      </Link>
+      {civ.slug && (
+        <Link className="detail-view-full" href={`/${locale}/civ/${civ.slug}`}>
+          {dict.detail.viewFull}
+        </Link>
+      )}
     </div>
   );
 }
