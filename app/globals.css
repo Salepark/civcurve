@@ -472,3 +472,14 @@ h1 {
   align-items: flex-end;
   gap: 6px;
 }
+
+.dataset-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  row-gap: 2px;
+}
+
+.dataset-nav > span {
+  white-space: nowrap;
+}
