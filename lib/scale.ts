@@ -6,6 +6,15 @@ export function resolveYear(year: number | "present"): number {
 }
 
 /**
+ * 밴드가 그려지는 끝 연도. ongoing이면 데이터에 박힌 endYear가 과거가 돼도
+ * 밴드가 현재까지 이어지도록 현재 연도와 비교해 큰 쪽을 쓴다. 라벨 문구는 이 값과 무관.
+ */
+export function effectiveEndYear(civ: { ongoing?: boolean; endYear: number | "present" }): number {
+  const end = resolveYear(civ.endYear);
+  return civ.ongoing ? Math.max(end, new Date().getFullYear()) : end;
+}
+
+/**
  * 연도(BC/AD) <-> SVG x좌표 변환.
  * 데이터 범위(minYear~maxYear)를 [0, width]에 선형으로 매핑한다.
  */
