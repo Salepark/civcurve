@@ -31,7 +31,7 @@ export const regionLabels: Record<Locale, Record<RegionKey, string>> = {
 
 export type Dictionary = {
   meta: { title: string; description: string };
-  nav: { civilizations: string; faith: string; art: string; science: string; tech: string };
+  nav: { civilizations: string; faith: string; art: string; science: string; tech: string; religions: string };
   page: {
     eyebrow: string;
     title: string;
@@ -40,6 +40,7 @@ export type Dictionary = {
     art: { eyebrow: string; title: string; lede: string };
     science: { eyebrow: string; title: string; lede: string };
     tech: { eyebrow: string; title: string; lede: string };
+    religions: { eyebrow: string; title: string; lede: string };
   };
   detail: { empty: string; peak: string; present: string; ongoing: string; viewFull: string };
   civPage: { back: string };
@@ -77,8 +78,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
         title: "TechCurve",
         lede: "The horizontal axis is time (3500 BCE to today). Each band traces one chapter in the history of technology and industry — tools, engineering, and infrastructure, not pure science — from its beginning to the present. Several bands remain open-ended, still unfolding today. Click a chapter for details.",
       },
+      religions: {
+        eyebrow: "WorldReligionsCurve · Phase 1 prototype",
+        title: "WorldReligionsCurve",
+        lede: "The horizontal axis is time. This page presents five of the world's major religious traditions (Christianity, Islam, Hinduism, Buddhism, and Judaism) at the same depth and in the same neutral tone — not as a claim that these are definitively \"the\" five world religions, but as five among many worth comparing. Judaism is included less for its number of adherents than for its historical and doctrinal influence on Christianity and Islam. Each tradition's starting point rests on a different kind of criterion — the formation of a textual tradition, a covenant with an ancestor, a founder's enlightenment, a death and resurrection, a first revelation — so these dates are not historical facts of the same kind. Where a tradition's own account of its origin differs from what historical scholarship can confirm, both are noted, and neither is used to judge the other. Traditional dating is marked as such within each entry. For a deeper look at Christian church history specifically, see FaithCurve. Click a tradition for details.",
+      },
     },
-    nav: { civilizations: "Civilizations", faith: "Faith History", art: "Art Movements", science: "Science History", tech: "Technology History" },
+    nav: { civilizations: "Civilizations", faith: "Faith History", art: "Art Movements", science: "Science History", tech: "Technology History", religions: "World Religions" },
     detail: {
       empty: "Click a civilization in the timeline to see its details here.",
       peak: "Peak",
@@ -121,8 +127,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
         title: "TechCurve",
         lede: "가로축은 시간(BC3500~현재), 각 밴드는 순수 과학이 아니라 도구·공학·인프라 중심의 기술/산업사의 한 장을 탄생부터 오늘까지로 나타냅니다. 여러 장은 아직 끝나지 않고 진행 중입니다. 장을 클릭하면 상세 정보를 볼 수 있습니다.",
       },
+      religions: {
+        eyebrow: "WorldReligionsCurve · Phase 1 프로토타입",
+        title: "WorldReligionsCurve",
+        lede: "가로축은 시간입니다. 이 페이지는 세계 주요 종교 가운데 다섯 가지(기독교·이슬람교·힌두교·불교·유대교)를 같은 깊이, 같은 중립적 톤으로 나타냅니다 — '세계 5대 종교'로 단정하는 게 아니라 그중 다섯 가지를 다룬다는 뜻입니다. 유대교는 신자 수보다 기독교·이슬람교에 끼친 역사적·사상적 영향력 때문에 포함했습니다. 각 종교는 서로 다른 기준(문헌 전통의 형성, 조상과의 언약, 창시자의 깨달음, 죽음과 부활, 최초의 계시)으로 시작점을 정했기 때문에 이 연대들은 같은 성격의 역사적 사실이 아닙니다. 종교가 스스로 설명하는 전통적 기원과 역사학이 확인하는 기원을 구별하되, 어느 한쪽을 다른 한쪽의 기준으로 재단하지 않았습니다. 전통적 연대는 각 항목 설명에 따로 표시했습니다. 기독교 역사를 더 깊이 보려면 FaithCurve를 참고하세요. 전통을 클릭하면 상세 정보를 볼 수 있습니다.",
+      },
     },
-    nav: { civilizations: "문명", faith: "기독교 역사", art: "미술 사조", science: "과학사", tech: "기술사" },
+    nav: { civilizations: "문명", faith: "기독교 역사", art: "미술 사조", science: "과학사", tech: "기술사", religions: "세계 종교" },
     detail: {
       empty: "타임라인에서 문명을 클릭하면 상세 정보가 여기 표시됩니다.",
       peak: "전성기",
