@@ -31,7 +31,7 @@ export const regionLabels: Record<Locale, Record<RegionKey, string>> = {
 
 export type Dictionary = {
   meta: { title: string; description: string };
-  nav: { civilizations: string; faith: string; art: string; science: string; tech: string; religions: string };
+  nav: { civilizations: string; faith: string; art: string; science: string; tech: string; religions: string; literature: string };
   page: {
     eyebrow: string;
     title: string;
@@ -41,6 +41,7 @@ export type Dictionary = {
     science: { eyebrow: string; title: string; lede: string };
     tech: { eyebrow: string; title: string; lede: string };
     religions: { eyebrow: string; title: string; lede: string };
+    literature: { eyebrow: string; title: string; lede: string };
   };
   detail: { empty: string; peak: string; present: string; ongoing: string; viewFull: string };
   civPage: { back: string };
@@ -83,8 +84,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
         title: "WorldReligionsCurve",
         lede: "The horizontal axis is time. This page presents five of the world's major religious traditions (Christianity, Islam, Hinduism, Buddhism, and Judaism) at the same depth and in the same neutral tone — not as a claim that these are definitively \"the\" five world religions, but as five among many worth comparing. Judaism is included less for its number of adherents than for its historical and doctrinal influence on Christianity and Islam. Each tradition's starting point rests on a different kind of criterion — the formation of a textual tradition, a covenant with an ancestor, a founder's enlightenment, a death and resurrection, a first revelation — so these dates are not historical facts of the same kind. Where a tradition's own account of its origin differs from what historical scholarship can confirm, both are noted, and neither is used to judge the other. Traditional dating is marked as such within each entry. For a deeper look at Christian church history specifically, see FaithCurve. Click a tradition for details.",
       },
+      literature: {
+        eyebrow: "LiteratureCurve · Phase 1 prototype",
+        title: "LiteratureCurve",
+        lede: "The horizontal axis is time. This page traces the history of Western literature across 15 chapters, from ancient epic poetry (Gilgamesh, Homer) through the AI-assisted writing of today. Some chapters overlap in time with entries in other datasets on this site, such as ArtCurve's Romanticism — that overlap is intentional, since literary history is deeply entangled with art, religion, and philosophy rather than a separate, isolated track. Click a chapter for details.",
+      },
     },
-    nav: { civilizations: "Civilizations", faith: "Faith History", art: "Art Movements", science: "Science History", tech: "Technology History", religions: "World Religions" },
+    nav: { civilizations: "Civilizations", faith: "Faith History", art: "Art Movements", science: "Science History", tech: "Technology History", religions: "World Religions", literature: "Literature History" },
     detail: {
       empty: "Click a civilization in the timeline to see its details here.",
       peak: "Peak",
@@ -132,8 +138,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
         title: "WorldReligionsCurve",
         lede: "가로축은 시간입니다. 이 페이지는 세계 주요 종교 가운데 다섯 가지(기독교·이슬람교·힌두교·불교·유대교)를 같은 깊이, 같은 중립적 톤으로 나타냅니다 — '세계 5대 종교'로 단정하는 게 아니라 그중 다섯 가지를 다룬다는 뜻입니다. 유대교는 신자 수보다 기독교·이슬람교에 끼친 역사적·사상적 영향력 때문에 포함했습니다. 각 종교는 서로 다른 기준(문헌 전통의 형성, 조상과의 언약, 창시자의 깨달음, 죽음과 부활, 최초의 계시)으로 시작점을 정했기 때문에 이 연대들은 같은 성격의 역사적 사실이 아닙니다. 종교가 스스로 설명하는 전통적 기원과 역사학이 확인하는 기원을 구별하되, 어느 한쪽을 다른 한쪽의 기준으로 재단하지 않았습니다. 전통적 연대는 각 항목 설명에 따로 표시했습니다. 기독교 역사를 더 깊이 보려면 FaithCurve를 참고하세요. 전통을 클릭하면 상세 정보를 볼 수 있습니다.",
       },
+      literature: {
+        eyebrow: "LiteratureCurve · Phase 1 프로토타입",
+        title: "LiteratureCurve",
+        lede: "가로축은 시간입니다. 이 페이지는 고대 서사시 문학(길가메시·호메로스)부터 오늘날의 AI 생성 문학까지, 서양 문학사를 15개 장으로 나눠 보여줍니다. 일부 장은 이 사이트의 다른 데이터셋(예: ArtCurve의 낭만주의)과 시기가 겹치는데, 이는 의도된 것입니다 — 문학사는 예술·종교·철학사와 깊이 얽혀 있어 따로 떼어낼 수 있는 독립된 흐름이 아니기 때문입니다. 장을 클릭하면 상세 정보를 볼 수 있습니다.",
+      },
     },
-    nav: { civilizations: "문명", faith: "기독교 역사", art: "미술 사조", science: "과학사", tech: "기술사", religions: "세계 종교" },
+    nav: { civilizations: "문명", faith: "기독교 역사", art: "미술 사조", science: "과학사", tech: "기술사", religions: "세계 종교", literature: "문학사" },
     detail: {
       empty: "타임라인에서 문명을 클릭하면 상세 정보가 여기 표시됩니다.",
       peak: "전성기",
