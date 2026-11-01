@@ -44,6 +44,18 @@ export function TimelineApp({
     setScrollFraction(wrap.scrollLeft / svgWidth(wrap));
   }, [zoomIndex]);
 
+  // 확대 상태에서 밴드를 선택하면, 화면 밖에 있을 때 그 밴드가 가운데 오도록 스크롤한다.
+  function scrollToSpan(span: { start: number; end: number }) {
+    const wrap = wrapRef.current;
+    if (!wrap || zoom === 1) return;
+    const width = svgWidth(wrap);
+    const left = span.start * width;
+    const right = span.end * width;
+    if (left >= wrap.scrollLeft && right <= wrap.scrollLeft + wrap.clientWidth) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    wrap.scrollTo({ left: (left + right) / 2 - wrap.clientWidth / 2, behavior: reduceMotion ? "auto" : "smooth" });
+  }
+
   const zoomOutLabel = locale === "en" ? "Zoom out" : "축소";
   const zoomInLabel = locale === "en" ? "Zoom in" : "확대";
 
@@ -76,7 +88,14 @@ export function TimelineApp({
             ariaLabel={ariaLabel}
             zoom={zoom}
             scrollFraction={scrollFraction}
-            onSelect={(id) => setSelectedId(id === selectedId ? null : id)}
+            onSelect={(id, span) => {
+              if (id === selectedId) {
+                setSelectedId(null);
+                return;
+              }
+              setSelectedId(id);
+              scrollToSpan(span);
+            }}
           />
         </div>
       </div>
