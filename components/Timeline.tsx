@@ -69,7 +69,8 @@ export function Timeline({
   zoom?: number;
   /** 가로 스크롤 위치(0~1, 전체 폭 대비). 밴드 라벨을 보이는 영역 왼쪽에 붙여 두는 데 쓴다. */
   scrollFraction?: number;
-  onSelect: (id: string) => void;
+  /** span: 밴드의 시작·끝 위치(전체 폭 대비 0~1). 확대 상태에서 선택한 밴드로 스크롤하는 데 쓴다. */
+  onSelect: (id: string, span: { start: number; end: number }) => void;
 }) {
   const chartWidth = BASE_CHART_WIDTH * zoom;
   const labelX = 4 + scrollFraction * chartWidth;
@@ -80,6 +81,9 @@ export function Timeline({
   );
   const scale = makeXScale(minYear, maxYear, chartWidth - 2 * CHART_MARGIN_X);
   const x = (year: number) => CHART_MARGIN_X + scale.toX(year);
+
+  const select = (civ: Civilization) =>
+    onSelect(civ.id, { start: x(civ.startYear) / chartWidth, end: x(effectiveEndYear(civ)) / chartWidth });
 
   const sorted = [...civilizations].sort((a, b) => a.startYear - b.startYear);
   const lastRowY = TOP_PADDING + (sorted.length - 1) * ROW_HEIGHT;
@@ -132,13 +136,13 @@ export function Timeline({
             className="civ-row"
             data-dimmed={isDimmed}
             data-ongoing={civ.ongoing ?? false}
-            onClick={() => onSelect(civ.id)}
+            onClick={() => select(civ)}
             tabIndex={0}
             role="button"
             aria-pressed={isSelected}
             aria-label={`${name}, ${formatTick(civ.startYear, locale)} - ${endLabel}`}
             onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") onSelect(civ.id);
+              if (e.key === "Enter" || e.key === " ") select(civ);
             }}
           >
             <path
