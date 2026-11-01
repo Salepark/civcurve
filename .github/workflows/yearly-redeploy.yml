@@ -1,0 +1,16 @@
+# ongoing 밴드의 끝은 빌드 시점 연도로 계산되므로, 매년 1월 1일에 재배포해 갱신한다.
+name: Yearly redeploy
+
+on:
+  schedule:
+    - cron: "0 0 1 1 *" # 매년 1월 1일 00:00 UTC
+  workflow_dispatch:
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel deploy hook
+        run: curl --fail --silent --show-error -X POST "$VERCEL_DEPLOY_HOOK"
+        env:
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
