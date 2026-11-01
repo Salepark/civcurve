@@ -1,0 +1,282 @@
+// LiteratureCurve 데이터셋 — civilizations.ts의 Civilization 타입을 그대로 재사용.
+// (region은 optional이라 여기서는 아예 안 씀 — 지역 개념이 없는 데이터셋)
+// Phase 1 범위: 서양 문학사 중심 15개 장. 고대 서사시부터 2022년 이후 AI 생성 문학까지.
+// ArtCurve의 낭만주의/Romanticism 등 다른 데이터셋과 시기가 겹치는 장이 있는데,
+// Louis의 명시적 판단("문학·철학은 종교와도 밀접하니 중복이 돼도 문제 아님 — 인류
+// 역사에서 연관 안 된 것이 없다")에 따라 중복 회피를 위해 범위를 억지로 비틀지 않았다.
+
+import type { Civilization } from "./civilizations";
+
+export const literatureHistory: Civilization[] = [
+  {
+    id: "ancient-epic-literature",
+    name: { ko: "고대 서사시 문학 (길가메시·호메로스)", en: "Ancient Epic Literature (Gilgamesh, Homer)" },
+    startYear: -2100,
+    endYear: -700,
+    peakStart: -1200,
+    peakEnd: -700,
+    summary: {
+      ko: "인류 최초의 문학 작품으로 꼽히는 길가메시 서사시에서 출발해, 호메로스의 일리아스·오디세이아로 이어진 시기. 구전으로 전해지던 영웅 이야기가 문자로 고정되며 '문학'이라는 개념 자체가 시작됐다.",
+      en: "Beginning with the Epic of Gilgamesh, often called humanity's earliest literary work, through Homer's Iliad and Odyssey. Oral hero-tales became fixed in writing, and the very concept of \"literature\" began to take shape.",
+    },
+    keyEvents: [
+      { year: -2100, label: { ko: "길가메시 서사시, 점토판에 기록", en: "The Epic of Gilgamesh is recorded on clay tablets" } },
+      { year: -750, label: { ko: "호메로스, 일리아스 완성 (전통적 연대)", en: "Homer completes the Iliad (traditional dating)" } },
+      { year: -700, label: { ko: "헤시오도스, 신통기 저술", en: "Hesiod writes the Theogony" } },
+    ],
+    color: "#8a7a5a",
+  },
+  {
+    id: "classical-greek-literature",
+    name: { ko: "그리스 고전 문학", en: "Classical Greek Literature" },
+    startYear: -700,
+    endYear: -300,
+    peakStart: -500,
+    peakEnd: -400,
+    summary: {
+      ko: "비극·희극이라는 극문학 장르가 아테네에서 탄생하고, 사포의 서정시가 개인의 감정을 처음 문학의 중심에 놓은 시기. 소포클레스·에우리피데스의 비극은 이후 서양 희곡의 원형이 됐다.",
+      en: "Tragedy and comedy were born as dramatic genres in Athens, while Sappho's lyric poetry first placed individual emotion at the center of literature. The tragedies of Sophocles and Euripides became the template for Western drama that followed.",
+    },
+    keyEvents: [
+      { year: -458, label: { ko: "아이스킬로스, 「오레스테이아」 공연", en: "Aeschylus's Oresteia is performed" } },
+      { year: -429, label: { ko: "소포클레스, 「오이디푸스 왕」", en: "Sophocles writes Oedipus Rex" } },
+      { year: -385, label: { ko: "아리스토파네스, 희극 전성기", en: "Aristophanes at the height of his comic career" } },
+    ],
+    color: "#6b8a7a",
+  },
+  {
+    id: "roman-literature",
+    name: { ko: "로마 문학", en: "Roman Literature" },
+    startYear: -100,
+    endYear: 200,
+    peakStart: -70,
+    peakEnd: 20,
+    summary: {
+      ko: "베르길리우스가 그리스 서사시 전통을 로마의 건국 신화로 재창조하고, 오비디우스가 신화를 세련된 이야기로 풀어낸 시기. 그리스 문학을 라틴어로 흡수하면서도 독자적인 문체를 만들어냈다.",
+      en: "Virgil reimagined the Greek epic tradition as Rome's own founding myth, while Ovid retold mythology with sophisticated narrative craft. Greek literature was absorbed into Latin even as a distinct Roman style emerged.",
+    },
+    keyEvents: [
+      { year: -19, label: { ko: "베르길리우스, 「아이네이스」 완성", en: "Virgil completes the Aeneid" } },
+      { year: 8, label: { ko: "오비디우스, 「변신 이야기」 저술", en: "Ovid writes the Metamorphoses" } },
+      { year: 65, label: { ko: "세네카, 로마 비극과 철학적 산문 전성기", en: "Seneca at the height of his tragedies and philosophical prose" } },
+    ],
+    color: "#9c5a4a",
+  },
+  {
+    id: "medieval-epic-romance",
+    name: { ko: "중세 서사·로망스 문학", en: "Medieval Epic & Romance Literature" },
+    startYear: 700,
+    endYear: 1400,
+    peakStart: 1100,
+    peakEnd: 1320,
+    summary: {
+      ko: "베오울프 같은 영웅 서사시에서 아서왕 전설의 궁정 로망스로 넘어가며, 기사도와 사랑이라는 새로운 문학적 주제가 자리잡은 시기. 단테의 「신곡」은 중세 문학이 도달한 정점이자 다음 시대로의 다리가 됐다.",
+      en: "Heroic epics like Beowulf gave way to the courtly romances of Arthurian legend, establishing chivalry and love as new literary themes. Dante's Divine Comedy stood as both the summit of medieval literature and a bridge to the age that followed.",
+    },
+    keyEvents: [
+      { year: 1000, label: { ko: "베오울프, 필사본으로 전해짐", en: "Beowulf survives in manuscript form" } },
+      { year: 1170, label: { ko: "크레티앵 드 트루아, 아서왕 로망스 집필", en: "Chrétien de Troyes writes his Arthurian romances" } },
+      { year: 1320, label: { ko: "단테, 「신곡」 완성", en: "Dante completes the Divine Comedy" } },
+    ],
+    color: "#6a6a9a",
+  },
+  {
+    id: "renaissance-literature",
+    name: { ko: "르네상스 문학", en: "Renaissance Literature" },
+    startYear: 1400,
+    endYear: 1600,
+    peakStart: 1500,
+    peakEnd: 1600,
+    summary: {
+      ko: "페트라르카의 소네트가 개인의 내면을 노래하는 형식을 세우고, 셰익스피어와 세르반테스가 각각 희곡과 소설의 가능성을 크게 넓힌 시기. 인쇄술 덕분에 문학이 소수 필사본에서 벗어나 널리 읽히기 시작했다.",
+      en: "Petrarch's sonnets established a form for voicing inner life, while Shakespeare and Cervantes each vastly expanded what drama and prose fiction could do. Thanks to the printing press, literature escaped a handful of manuscripts and began to reach a wide readership.",
+    },
+    keyEvents: [
+      { year: 1591, label: { ko: "셰익스피어, 극작 활동 본격화", en: "Shakespeare begins his major career as a playwright" } },
+      { year: 1605, label: { ko: "세르반테스, 「돈키호테」 1부 출간", en: "Cervantes publishes Part One of Don Quixote" } },
+      { year: 1611, label: { ko: "셰익스피어, 「템페스트」 완성 (마지막 단독 희곡)", en: "Shakespeare completes The Tempest, his last solo play" } },
+    ],
+    color: "#a68a3e",
+  },
+  {
+    id: "enlightenment-satire-prose",
+    name: { ko: "계몽주의 풍자·산문 문학", en: "Enlightenment Satire & Prose" },
+    startYear: 1660,
+    endYear: 1750,
+    peakStart: 1690,
+    peakEnd: 1740,
+    summary: {
+      ko: "몰리에르의 희극이 사회 풍습을 날카롭게 비꼬고, 스위프트가 「걸리버 여행기」로 인간 사회 전체를 풍자한 시기. 이성과 비판 정신이 문학의 주요 도구로 자리잡았다.",
+      en: "Molière's comedies sharply satirized social manners, while Swift's Gulliver's Travels turned satire on human society as a whole. Reason and critical wit became literature's primary tools.",
+    },
+    keyEvents: [
+      { year: 1664, label: { ko: "몰리에르, 「타르튀프」 초연", en: "Molière's Tartuffe premieres" } },
+      { year: 1719, label: { ko: "디포, 「로빈슨 크루소」 출간", en: "Defoe publishes Robinson Crusoe" } },
+      { year: 1726, label: { ko: "스위프트, 「걸리버 여행기」 출간", en: "Swift publishes Gulliver's Travels" } },
+    ],
+    color: "#7a8aa0",
+  },
+  {
+    id: "birth-of-the-modern-novel",
+    name: { ko: "근대 소설의 탄생", en: "Birth of the Modern Novel" },
+    startYear: 1740,
+    endYear: 1820,
+    peakStart: 1740,
+    peakEnd: 1810,
+    summary: {
+      ko: "리처드슨과 필딩이 등장인물의 내면 심리를 촘촘히 따라가는 장편 산문 서사를 정착시키고, 제인 오스틴이 그 형식을 완성도 높은 사회 풍속 소설로 발전시킨 시기. '소설'이 독자적인 문학 장르로 자리잡았다.",
+      en: "Richardson and Fielding established the long prose narrative that closely tracks a character's inner psychology, and Jane Austen refined the form into the polished novel of social manners. The \"novel\" established itself as a literary genre in its own right.",
+    },
+    keyEvents: [
+      { year: 1740, label: { ko: "리처드슨, 「파멜라」 출간", en: "Richardson publishes Pamela" } },
+      { year: 1749, label: { ko: "필딩, 「톰 존스」 출간", en: "Fielding publishes Tom Jones" } },
+      { year: 1813, label: { ko: "오스틴, 「오만과 편견」 출간", en: "Austen publishes Pride and Prejudice" } },
+    ],
+    color: "#c48a9c",
+  },
+  {
+    id: "romantic-literature",
+    name: { ko: "낭만주의 문학", en: "Romantic Literature" },
+    startYear: 1780,
+    endYear: 1850,
+    peakStart: 1800,
+    peakEnd: 1830,
+    summary: {
+      ko: "괴테가 개인의 열정과 고뇌를 소설의 중심에 놓고, 워즈워스·바이런이 시를 통해 자연과 자아를 새롭게 탐구한 시기. 이성보다 감정과 상상력을 앞세우며 이후 문학의 방향을 크게 바꿔놓았다.",
+      en: "Goethe placed individual passion and anguish at the center of the novel, while Wordsworth and Byron explored nature and the self anew through poetry. Prizing emotion and imagination over reason, it reshaped the direction literature would take.",
+    },
+    keyEvents: [
+      { year: 1774, label: { ko: "괴테, 「젊은 베르테르의 슬픔」 출간", en: "Goethe publishes The Sorrows of Young Werther" } },
+      { year: 1798, label: { ko: "워즈워스·콜리지, 「서정 담시집」 출간", en: "Wordsworth and Coleridge publish Lyrical Ballads" } },
+      { year: 1818, label: { ko: "메리 셸리, 「프랑켄슈타인」 출간", en: "Mary Shelley publishes Frankenstein" } },
+    ],
+    color: "#5a6b8a",
+  },
+  {
+    id: "realist-naturalist-novel",
+    name: { ko: "사실주의·자연주의 소설", en: "Realist & Naturalist Novel" },
+    startYear: 1830,
+    endYear: 1900,
+    peakStart: 1850,
+    peakEnd: 1890,
+    summary: {
+      ko: "발자크가 프랑스 사회 전체를 소설로 기록하려 했고, 톨스토이와 도스토옙스키가 인간 내면을 깊이 파고든 시기. 에밀 졸라의 자연주의는 과학적 관찰 태도를 소설 기법으로까지 끌어왔다.",
+      en: "Balzac set out to chronicle the whole of French society in fiction, while Tolstoy and Dostoevsky dug deep into human interiority. Émile Zola's naturalism brought a scientific attitude of observation into the technique of the novel itself.",
+    },
+    keyEvents: [
+      { year: 1857, label: { ko: "플로베르, 「마담 보바리」 출간", en: "Flaubert publishes Madame Bovary" } },
+      { year: 1869, label: { ko: "톨스토이, 「전쟁과 평화」 완성", en: "Tolstoy completes War and Peace" } },
+      { year: 1880, label: { ko: "졸라, 자연주의 소설론 확립", en: "Zola establishes the theory of the naturalist novel" } },
+    ],
+    color: "#6c6456",
+  },
+  {
+    id: "modernist-literature",
+    name: { ko: "모더니즘 문학", en: "Modernist Literature" },
+    startYear: 1900,
+    endYear: 1945,
+    peakStart: 1910,
+    peakEnd: 1930,
+    summary: {
+      ko: "제임스 조이스와 버지니아 울프가 의식의 흐름 기법으로 소설의 서술 방식 자체를 바꾸고, 카프카가 불안과 부조리를 문학의 핵심 주제로 끌어올린 시기. 전통적인 플롯과 시점이 해체되기 시작했다.",
+      en: "James Joyce and Virginia Woolf transformed the novel's very mode of narration with the stream-of-consciousness technique, while Kafka raised anxiety and absurdity to a central literary theme. Traditional plot and point of view began to come apart.",
+    },
+    keyEvents: [
+      { year: 1915, label: { ko: "카프카, 「변신」 출간", en: "Kafka publishes The Metamorphosis" } },
+      { year: 1922, label: { ko: "조이스, 「율리시스」 출간", en: "Joyce publishes Ulysses" } },
+      { year: 1925, label: { ko: "울프, 「댈러웨이 부인」 출간", en: "Woolf publishes Mrs Dalloway" } },
+    ],
+    color: "#6a4a8a",
+  },
+  {
+    id: "postwar-existentialist-literature",
+    name: { ko: "전후·실존주의 문학", en: "Postwar & Existentialist Literature" },
+    startYear: 1945,
+    endYear: 1970,
+    peakStart: 1945,
+    peakEnd: 1960,
+    summary: {
+      ko: "2차 세계대전의 참상을 겪은 뒤, 카뮈와 사르트르가 삶의 부조리와 선택의 자유를 문학으로 탐구한 시기. 베케트는 희곡에서 언어와 의미 자체를 해체하는 데까지 나아갔다.",
+      en: "In the aftermath of the Second World War, Camus and Sartre explored the absurdity of existence and the freedom of choice through literature. Beckett pushed drama to the point of dismantling language and meaning themselves.",
+    },
+    keyEvents: [
+      { year: 1942, label: { ko: "카뮈, 「이방인」 출간", en: "Camus publishes The Stranger" } },
+      { year: 1945, label: { ko: "사르트르, 실존주의 문학론 전개", en: "Sartre develops his existentialist literary theory" } },
+      { year: 1953, label: { ko: "베케트, 「고도를 기다리며」 초연", en: "Beckett's Waiting for Godot premieres" } },
+    ],
+    color: "#4a6a7a",
+  },
+  {
+    id: "postmodern-literature",
+    name: { ko: "포스트모던 문학", en: "Postmodern Literature" },
+    startYear: 1960,
+    endYear: 2000,
+    peakStart: 1967,
+    peakEnd: 1990,
+    summary: {
+      ko: "보르헤스가 미로 같은 이야기 구조로 현실과 허구의 경계를 흐리고, 마르케스의 마술적 사실주의가 환상과 일상을 아무렇지 않게 뒤섞은 시기. 하나의 정답이나 중심 서사를 거부하는 태도가 두드러졌다.",
+      en: "Borges blurred the line between reality and fiction with labyrinthine narrative structures, while García Márquez's magical realism mixed the fantastic and the everyday without apology. A refusal of any single, central narrative became the defining attitude.",
+    },
+    keyEvents: [
+      { year: 1962, label: { ko: "보르헤스, 「픽션들」 영어 번역 출간", en: "Borges's Ficciones is published in English translation" } },
+      { year: 1967, label: { ko: "마르케스, 「백년의 고독」 출간", en: "García Márquez publishes One Hundred Years of Solitude" } },
+      { year: 1973, label: { ko: "핀천, 「중력의 무지개」 출간", en: "Pynchon publishes Gravity's Rainbow" } },
+    ],
+    color: "#8a5a3a",
+  },
+  {
+    id: "digital-hypertext-literature",
+    name: { ko: "디지털·하이퍼텍스트 문학", en: "Digital & Hypertext Literature" },
+    startYear: 1990,
+    endYear: 2010,
+    peakStart: 1995,
+    peakEnd: 2005,
+    summary: {
+      ko: "클릭으로 서사의 경로가 갈라지는 하이퍼텍스트 소설이 등장하고, 전자책 리더가 보급되며 읽는 방식 자체가 달라진 시기. 종이책 바깥에서도 문학이 존재할 수 있다는 가능성이 처음 실험됐다.",
+      en: "Hypertext fiction emerged, letting a reader's clicks branch the narrative's path, while e-readers spread and changed the act of reading itself. It was the first real experiment with the possibility that literature could exist outside the printed book.",
+    },
+    keyEvents: [
+      { year: 1990, label: { ko: "하이퍼텍스트 소설, 초기 작품 등장", en: "Early hypertext fiction works appear" } },
+      { year: 2007, label: { ko: "아마존 킨들 출시", en: "Amazon launches the Kindle" } },
+      { year: 2008, label: { ko: "전자책 시장, 본격 성장 시작", en: "The e-book market begins real growth" } },
+    ],
+    color: "#4a7a9c",
+  },
+  {
+    id: "web-fiction-platform-genre-era",
+    name: { ko: "웹소설·장르문학 플랫폼 시대", en: "Web Fiction & Platform Genre Literature" },
+    startYear: 2010,
+    endYear: 2022,
+    peakStart: 2013,
+    peakEnd: 2022,
+    summary: {
+      ko: "왓패드 같은 연재 플랫폼과 웹소설 서비스가 등단 없이도 독자를 직접 만나는 길을 열며, 장르문학(로맨스·판타지·무협)이 출판사를 거치지 않고도 거대한 독자층을 확보한 시기. 글쓰기와 독서의 접근 장벽이 크게 낮아졌다.",
+      en: "Serialization platforms like Wattpad and web-novel services opened a path to readers without the gatekeeping of traditional publishing, and genre fiction — romance, fantasy, martial-arts wuxia — built huge readerships without going through a publisher at all. The barrier to both writing and reading fell sharply.",
+    },
+    keyEvents: [
+      { year: 2010, label: { ko: "왓패드, 전 세계 사용자 확대", en: "Wattpad's global user base expands rapidly" } },
+      { year: 2013, label: { ko: "국내 웹소설 플랫폼, 본격 성장 시작", en: "Korean web-novel platforms begin rapid growth" } },
+      { year: 2020, label: { ko: "웹소설 원작, 드라마·웹툰으로 2차 창작 활발화", en: "Web novels increasingly adapted into dramas and webtoons" } },
+    ],
+    color: "#c9507a",
+  },
+  {
+    id: "ai-generative-literature",
+    name: { ko: "AI 생성 문학", en: "AI & Generative Literature" },
+    startYear: 2022,
+    endYear: 2026,
+    peakStart: 2022,
+    peakEnd: 2026,
+    ongoing: true,
+    summary: {
+      ko: "대규모 언어모델이 소설·시나리오 초고를 함께 쓰는 도구로 쓰이기 시작한 시기. '저자성'이 누구에게 있는가라는 질문이 아직 해결되지 않은 채, 이 장은 현재진행형으로 쓰이고 있다.",
+      en: "Large language models began to be used as tools for co-drafting novels and screenplays. The question of where authorship lies remains unresolved, and this chapter is still being written in real time.",
+    },
+    keyEvents: [
+      { year: 2022, label: { ko: "ChatGPT 공개, 창작 보조 도구로 활용 확산", en: "ChatGPT launches and spreads as a tool for creative assistance" } },
+      { year: 2023, label: { ko: "AI 공동저작 작품, 출판·공모전 자격 논쟁 촉발", en: "AI-coauthored works spark debate over eligibility in publishing and contests" } },
+      { year: 2024, label: { ko: "주요 출판사, AI 활용 가이드라인 발표", en: "Major publishers issue guidelines on the use of AI" } },
+    ],
+    color: "#b0563a",
+  },
+];
