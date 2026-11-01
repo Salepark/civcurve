@@ -154,6 +154,8 @@ h1 {
 }
 
 .app-layout {
+  --zoom-row-height: 28px;
+  --zoom-row-gap: 8px;
   display: flex;
   gap: 32px;
   align-items: flex-start;
@@ -170,14 +172,15 @@ h1 {
   align-items: center;
   justify-content: flex-end;
   gap: 8px;
-  margin-bottom: 8px;
+  height: var(--zoom-row-height);
+  margin-bottom: var(--zoom-row-gap);
   font-size: 13px;
   color: var(--ink-soft);
 }
 
 .zoom-controls button {
-  width: 28px;
-  height: 28px;
+  width: var(--zoom-row-height);
+  height: var(--zoom-row-height);
   font: inherit;
   color: var(--ink);
   background: var(--bg-raised);
@@ -322,6 +325,7 @@ h1 {
   padding: 22px;
   position: sticky;
   top: 24px;
+  margin-top: calc(var(--zoom-row-height) + var(--zoom-row-gap)); /* 줌 컨트롤 줄만큼 내려 차트 박스 윗선과 맞춘다 */
 }
 
 .detail-empty {
@@ -498,6 +502,7 @@ h1 {
   .detail-panel {
     position: static;
     width: 100%;
+    margin-top: 0;
   }
 }
 
