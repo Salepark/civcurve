@@ -11,11 +11,11 @@ export function DatasetNav({
   const dict = dictionaries[locale];
   const items: { key: "civilizations" | "faith" | "art" | "science" | "tech" | "religions"; label: string; href: string }[] = [
     { key: "civilizations", label: dict.nav.civilizations, href: `/${locale}` },
-    { key: "faith", label: dict.nav.faith, href: `/${locale}/faith` },
     { key: "art", label: dict.nav.art, href: `/${locale}/art` },
     { key: "science", label: dict.nav.science, href: `/${locale}/science` },
     { key: "tech", label: dict.nav.tech, href: `/${locale}/tech` },
     { key: "religions", label: dict.nav.religions, href: `/${locale}/religions` },
+    { key: "faith", label: dict.nav.faith, href: `/${locale}/faith` },
   ];
   return (
     <nav className="dataset-nav locale-switch mono" aria-label="Dataset">
