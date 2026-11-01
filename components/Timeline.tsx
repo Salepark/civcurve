@@ -9,10 +9,11 @@ const AXIS_LABEL_GAP = 16;
 const TOP_PADDING = 90; // 축 눈금 라벨과 첫 행 라벨이 겹치지 않을 여유
 const BOTTOM_PADDING = 24;
 const CHART_WIDTH = 960;
+const CHART_MARGIN_X = 32; // 양끝 눈금 라벨("2000 BCE" 등)이 잘리지 않고 끝 밴드가 가장자리에 붙지 않을 여유
 const TICK_STEP = 500; // 500년 단위 눈금
 
 function bandPath(
-  x: ReturnType<typeof makeXScale>["toX"],
+  x: (year: number) => number,
   civ: Civilization,
   y: number
 ) {
@@ -69,7 +70,8 @@ export function Timeline({
     ...civilizations.map((c) => effectiveEndYear(c)),
     resolveYear("present")
   );
-  const x = makeXScale(minYear, maxYear, CHART_WIDTH).toX;
+  const scale = makeXScale(minYear, maxYear, CHART_WIDTH - 2 * CHART_MARGIN_X);
+  const x = (year: number) => CHART_MARGIN_X + scale.toX(year);
 
   const sorted = [...civilizations].sort((a, b) => a.startYear - b.startYear);
   const lastRowY = TOP_PADDING + (sorted.length - 1) * ROW_HEIGHT;
