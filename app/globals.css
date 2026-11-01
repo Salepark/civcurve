@@ -159,9 +159,44 @@ h1 {
   align-items: flex-start;
 }
 
-.timeline-wrap {
+.timeline-column {
   flex: 1 1 640px;
   min-width: 0;
+  width: 100%; /* 세로 배치(좁은 화면)에서 svg의 min-width가 컬럼을 화면 밖으로 밀지 않게 */
+}
+
+.zoom-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.zoom-controls button {
+  width: 28px;
+  height: 28px;
+  font: inherit;
+  color: var(--ink);
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.zoom-controls button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.zoom-controls button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.timeline-wrap {
   overflow-x: auto;
   background: var(--bg-raised);
   border: 1px solid var(--line);
