@@ -560,6 +560,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
+  column-gap: 16px; /* 구분점 대신 간격 — 줄바꿈 시 줄 맨 앞에 구분점이 남지 않게 */
   row-gap: 2px;
 }
 
