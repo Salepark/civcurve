@@ -31,6 +31,7 @@ export default async function PhilosophyPage({
         <p className="lede">{dict.page.philosophy.lede}</p>
       </header>
       <TimelineApp
+        datasetKey="philosophy"
         civilizations={philosophyHistory}
         locale={locale}
         ariaLabel={locale === "en" ? "Philosophy history curve timeline" : "철학사 곡선 타임라인"}

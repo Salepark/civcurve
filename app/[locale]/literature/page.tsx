@@ -31,6 +31,7 @@ export default async function LiteraturePage({
         <p className="lede">{dict.page.literature.lede}</p>
       </header>
       <TimelineApp
+        datasetKey="literature"
         civilizations={literatureHistory}
         locale={locale}
         ariaLabel={locale === "en" ? "Literature history curve timeline" : "문학사 곡선 타임라인"}

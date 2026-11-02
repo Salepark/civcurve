@@ -30,7 +30,7 @@ export default async function Home({
         </div>
         <p className="lede">{dict.page.lede}</p>
       </header>
-      <TimelineApp civilizations={civilizations} locale={locale} />
+      <TimelineApp civilizations={civilizations} locale={locale} datasetKey="civilizations" />
     </main>
   );
 }

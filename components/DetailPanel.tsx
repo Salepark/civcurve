@@ -1,14 +1,21 @@
 import Link from "next/link";
 import { Civilization } from "@/data/civilizations";
 import { formatTick, resolveYear } from "@/lib/scale";
+import { ReactionButton } from "./ReactionButton";
 import { dictionaries, regionLabels, type Locale } from "@/lib/i18n";
 
 export function DetailPanel({
   civ,
   locale,
+  datasetKey,
+  reactionCounts,
+  onReacted,
 }: {
   civ: Civilization | null;
   locale: Locale;
+  datasetKey: string;
+  reactionCounts: Record<string, number>;
+  onReacted: (entryId: string, count: number) => void;
 }) {
   const dict = dictionaries[locale];
 
@@ -38,6 +45,13 @@ export function DetailPanel({
       <h2>
         {name} <span className="detail-en">{civ.name[otherLocale]}</span>
       </h2>
+      <ReactionButton
+        datasetKey={datasetKey}
+        entryId={civ.id}
+        initialCount={reactionCounts[civ.id] ?? 0}
+        locale={locale}
+        onReacted={onReacted}
+      />
       <p className="detail-range mono">
         {formatTick(civ.startYear, locale)} – {endLabel}
         <span className="detail-peak">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Civilization } from "@/data/civilizations";
 import { Timeline } from "./Timeline";
 import { DetailPanel } from "./DetailPanel";
@@ -12,19 +12,35 @@ export function TimelineApp({
   civilizations,
   locale,
   ariaLabel,
+  datasetKey,
 }: {
   civilizations: Civilization[];
   locale: Locale;
   ariaLabel?: string;
+  datasetKey: string;
 }) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [zoomIndex, setZoomIndex] = useState(0);
   const [scrollFraction, setScrollFraction] = useState(0);
+  const [reactionCounts, setReactionCounts] = useState<Record<string, number>>({});
   const wrapRef = useRef<HTMLDivElement>(null);
   // 줌 전 화면 중앙이 가리키던 위치(전체 폭 대비 0~1). 줌 후 같은 지점이 중앙에 오도록 복원한다.
   const pendingCenter = useRef<number | null>(null);
   const selected = civilizations.find((c) => c.id === selectedId) ?? null;
   const zoom = ZOOM_LEVELS[zoomIndex];
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(`/api/reactions?dataset=${datasetKey}`)
+      .then((res) => (res.ok ? res.json() : {}))
+      .then((counts) => {
+        if (!cancelled) setReactionCounts(counts);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [datasetKey]);
 
   function svgWidth(wrap: HTMLDivElement) {
     return wrap.querySelector("svg")?.getBoundingClientRect().width ?? wrap.scrollWidth;
@@ -99,7 +115,13 @@ export function TimelineApp({
           />
         </div>
       </div>
-      <DetailPanel civ={selected} locale={locale} />
+      <DetailPanel
+        civ={selected}
+        locale={locale}
+        datasetKey={datasetKey}
+        reactionCounts={reactionCounts}
+        onReacted={(entryId, count) => setReactionCounts((prev) => ({ ...prev, [entryId]: count }))}
+      />
     </div>
   );
 }

@@ -31,6 +31,7 @@ export default async function ArtPage({
         <p className="lede">{dict.page.art.lede}</p>
       </header>
       <TimelineApp
+        datasetKey="art"
         civilizations={artHistory}
         locale={locale}
         ariaLabel={locale === "en" ? "Art movement curve timeline" : "미술 사조 곡선 타임라인"}

@@ -31,6 +31,7 @@ export default async function ReligionsPage({
         <p className="lede">{dict.page.religions.lede}</p>
       </header>
       <TimelineApp
+        datasetKey="religions"
         civilizations={religionsHistory}
         locale={locale}
         ariaLabel={locale === "en" ? "World religions curve timeline" : "세계 종교 곡선 타임라인"}
