@@ -31,7 +31,7 @@ export const regionLabels: Record<Locale, Record<RegionKey, string>> = {
 
 export type Dictionary = {
   meta: { title: string; description: string };
-  nav: { civilizations: string; faith: string; art: string; science: string; tech: string; religions: string; literature: string; philosophy: string; islam: string; hinduism: string; buddhism: string; judaism: string };
+  nav: { civilizations: string; faith: string; art: string; science: string; tech: string; religions: string; literature: string; philosophy: string; islam: string; hinduism: string; buddhism: string; judaism: string; religionsGroup: string; religionsToggle: string };
   page: {
     eyebrow: string;
     title: string;
@@ -121,7 +121,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
         lede: "A chronological look at Judaism's history from the traditional era of the patriarchs to the present — the Exodus and the Sinai covenant, the First and Second Temples, the Babylonian exile, rabbinic Judaism after 70 CE, medieval Jewish philosophy and Kabbalah, Hasidism, the Haskalah, Zionism, and the modern denominational movements — told as a single continuous flow rather than separate branches, since Judaism has no single schism point like Islam's Sunni–Shia split or a clean lineage branching like Buddhism's three vehicles. The earliest entries follow traditional biblical chronology, which modern scholarship debates. Click a chapter for details.",
       },
     },
-    nav: { civilizations: "Civilizations", faith: "Faith History", art: "Art Movements", science: "Science History", tech: "Technology History", religions: "World Religions", literature: "Literature History", philosophy: "Philosophy History", islam: "Islam History", hinduism: "Hinduism History", buddhism: "Buddhism History", judaism: "Judaism History" },
+    nav: { civilizations: "Civilizations", faith: "Faith History", art: "Art Movements", science: "Science History", tech: "Technology History", religions: "World Religions", literature: "Literature History", philosophy: "Philosophy History", islam: "Islam History", hinduism: "Hinduism History", buddhism: "Buddhism History", judaism: "Judaism History", religionsGroup: "Religious History", religionsToggle: "Show or hide religion deep dives" },
     detail: {
       empty: "Click a civilization in the timeline to see its details here.",
       peak: "Peak",
@@ -201,7 +201,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
         lede: "족장시대의 전통적 연대부터 현재까지 유대교의 역사를 연대기 순으로 살펴봅니다 — 출애굽과 시내산 언약, 제1·2성전, 바빌론 유수, 기원후 70년 이후의 랍비 유대교, 중세 유대 철학과 카발라, 하시디즘, 하스칼라, 시오니즘, 그리고 근대 교파 운동까지. 이슬람의 수니-시아 분열이나 불교의 삼승(三乘) 같은 뚜렷한 분기가 없는 유대교의 역사적 특성에 맞춰, 레인을 나누지 않고 단일한 연대기 흐름으로 구성했습니다. 가장 이른 시기의 항목들은 전통적 성서 연대기를 따르며, 이는 현대 학계에서 논쟁적인 영역입니다. 챕터를 클릭하면 상세 정보를 볼 수 있습니다.",
       },
     },
-    nav: { civilizations: "문명", faith: "기독교 역사", art: "미술 사조", science: "과학사", tech: "기술사", religions: "세계 종교", literature: "문학사", philosophy: "철학사", islam: "이슬람 역사", hinduism: "힌두교 역사", buddhism: "불교 역사", judaism: "유대교사" },
+    nav: { civilizations: "문명", faith: "기독교 역사", art: "미술 사조", science: "과학사", tech: "기술사", religions: "세계 종교", literature: "문학사", philosophy: "철학사", islam: "이슬람 역사", hinduism: "힌두교 역사", buddhism: "불교 역사", judaism: "유대교사", religionsGroup: "종교사", religionsToggle: "종교 딥다이브 펼치기/접기" },
     detail: {
       empty: "타임라인에서 문명을 클릭하면 상세 정보가 여기 표시됩니다.",
       peak: "전성기",

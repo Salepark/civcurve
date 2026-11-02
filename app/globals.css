@@ -568,6 +568,26 @@ h1 {
   white-space: nowrap;
 }
 
+.nav-group-header {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.nav-group-toggle {
+  font: inherit;
+  color: var(--ink-soft);
+  background: none;
+  border: 0;
+  padding: 0 2px;
+  cursor: pointer;
+}
+
+.nav-group-toggle:hover,
+.nav-group-toggle:focus-visible {
+  color: var(--accent-ink);
+}
+
 .reaction-button {
   display: inline-flex;
   align-items: center;
