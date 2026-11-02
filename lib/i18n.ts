@@ -103,7 +103,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       islam: {
         eyebrow: "IslamCurve · Phase 1 prototype",
         title: "IslamCurve",
-        lede: "The horizontal axis is time. IslamCurve traces Islamic religious and theological history across 13 chapters, from Muhammad's first revelation through the Sunni–Shia split at Karbala (680 CE) to the present, following each tradition as its own lane — with equal depth and no implied hierarchy between them. The focus is on religious and theological development; imperial political history (Ottoman, Safavid) appears only as background. Some chapters overlap in period with other datasets on this site, such as ScienceCurve's Islamic Golden Age — that overlap is intentional, since this page looks at the same centuries from the angle of law, theology, and mysticism rather than scientific achievement. Click a chapter for details.",
+        lede: "The horizontal axis is time. IslamCurve traces Islamic religious and theological history across 14 chapters, from Ibrahim, Isma'il, and the founding of the Kaaba — followed by Muhammad's first revelation — through the Sunni–Shia split at Karbala (680 CE) to the present, following each tradition as its own lane — with equal depth and no implied hierarchy between them. The focus is on religious and theological development; imperial political history (Ottoman, Safavid) appears only as background. Some chapters overlap in period with other datasets on this site, such as ScienceCurve's Islamic Golden Age — that overlap is intentional, since this page looks at the same centuries from the angle of law, theology, and mysticism rather than scientific achievement. Click a chapter for details.",
       },
       hinduism: {
         eyebrow: "HinduismCurve · Phase 1 prototype",
@@ -183,7 +183,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       islam: {
         eyebrow: "IslamCurve · Phase 1 프로토타입",
         title: "IslamCurve",
-        lede: "가로축은 시간입니다. IslamCurve는 무함마드의 첫 계시부터 카르발라(680년)에서의 수니·시아 분기, 그리고 현재까지 이슬람의 종교·신학사를 13개 장으로 나눠 보여줍니다. 두 전통을 각자의 레인으로 동일한 깊이·중립적 톤으로 추적하며 어느 쪽에도 더 정통이라는 인상을 주지 않습니다. 종교·신학적 발전이 중심이며, 오스만·사파비 같은 제국의 정치사는 배경으로만 다룹니다. 일부 장은 ScienceCurve의 이슬람 황금기처럼 이 사이트의 다른 데이터셋과 시기가 겹치는데, 이는 의도된 것입니다 — 이 페이지는 같은 시기를 과학적 성취가 아니라 법학·신학·신비주의의 관점에서 봅니다. 장을 클릭하면 상세 정보를 볼 수 있습니다.",
+        lede: "가로축은 시간입니다. IslamCurve는 이브라힘·이스마일의 카바 건립(전통적 연대)과 무함마드의 첫 계시부터 카르발라(680년)에서의 수니·시아 분기, 그리고 현재까지 이슬람의 종교·신학사를 14개 장으로 나눠 보여줍니다. 두 전통을 각자의 레인으로 동일한 깊이·중립적 톤으로 추적하며 어느 쪽에도 더 정통이라는 인상을 주지 않습니다. 종교·신학적 발전이 중심이며, 오스만·사파비 같은 제국의 정치사는 배경으로만 다룹니다. 일부 장은 ScienceCurve의 이슬람 황금기처럼 이 사이트의 다른 데이터셋과 시기가 겹치는데, 이는 의도된 것입니다 — 이 페이지는 같은 시기를 과학적 성취가 아니라 법학·신학·신비주의의 관점에서 봅니다. 장을 클릭하면 상세 정보를 볼 수 있습니다.",
       },
       hinduism: {
         eyebrow: "HinduismCurve · Phase 1 프로토타입",

@@ -1,30 +1,75 @@
 // IslamCurve 데이터셋 — civilizations.ts의 Civilization 타입을 그대로 재사용.
 // (region은 optional이라 여기서는 아예 안 씀)
-// Phase 1 범위: 이슬람 종교사 딥다이브, 13개 장. WorldReligionsCurve의 이슬람
-// 항목(610~현재, 단일 레인)을 FaithCurve가 기독교를 다루는 깊이로 확장한 것 —
-// CivCurve(개관)/FaithCurve(기독교 딥다이브), WorldReligionsCurve(종교 개관)/
-// IslamCurve(이슬람 딥다이브) 구조를 그대로 재사용.
+// Phase 1 범위: 이슬람 종교사 딥다이브, 14개 장 (v3, 2026-11-02 Louis 교정 반영).
+// WorldReligionsCurve의 이슬람 항목(610~현재, 단일 레인)을 FaithCurve가
+// 기독교를 다루는 깊이로 확장한 것.
 //
-// 설계 원칙:
-// 1) 종교·신학사 중심. 오스만·사파비 등 제국의 정치·군사사는 그 시기 종교
-//    제도가 어떻게 형성됐는지의 "배경"으로만 다루고 장의 중심 주제로 삼지
-//    않는다 (Louis 명시적 결정).
-// 2) 수니·시아를 680년(카르발라) 이후 별도 레인으로 분리 — FaithCurve가
-//    1054/1517 이후 가톨릭/정교회/개신교를 별도 레인으로 다룬 패턴을 그대로
-//    재사용. 두 전통 모두 같은 깊이·중립적 톤으로 서술하며 어느 쪽도 "더
-//    정통"이라는 인상을 주지 않는다. 시아파 내부의 열두이맘파/이스마일파/
-//    자이드파 분화도 가치 판단 없이 병렬 서술.
-// 3) ScienceCurve의 "이슬람 황금기 과학" 장과 시기(AD800~1400)가 겹치지만
-//    관점이 다르다 — 그쪽은 과학적 성취(수학·의학·천문학), 여기는 신학·법학·
-//    신비주의 등 종교 제도의 발전. 의도된 비중복(겹치되 다른 각도).
-// 4) 각 장은 "지금도 이어지는 전통"이라는 사실을 동일하게 표현하기 위해,
-//    두 전통의 마지막 장(현대 수니 개혁·부흥 / 현대 시아 성직 위계)만
-//    ongoing: true로 지정하고 peakStart/peakEnd를 startYear/endYear와
-//    동일하게 둔다.
+// REVISED 2026-11-02 (v2 → v3): JudaismCurve에 구약시대를 넣은 것과 같은 종류의
+// 불일치를 Louis가 IslamCurve에서 짚었다 — 이슬람은 구약시대를 표기하지 않는데
+// 기독교·유대교에만 표기한 것은 이상하다는 지적. 검토 결과 타당하되 범위는 더
+// 좁다. 이슬람 신학에서 이브라힘과 아들 이스마일(이삭이 아님)의 카바 건립은
+// 단순한 배경이 아니라 하지 의례(사이, 잠잠, 이둘아드하)에 직접 구현된 자기
+// 정체성이며, 꾸란은 이를 "밀라트 이브라힘"이라 부르고 이브라힘을 "하니프"로
+// 규정한다(꾸란 3:67). 반면 아담·노아·무사·이사는 꾸란에서 "예언자 계승 서사"로
+// 기능할 뿐 장소·건축물·현재진행형 의례로 제도화되어 있지 않다. Louis는 세 범위
+// 선택지 중 가장 좁은 "이브라힘·이스마일·카바 건립만"을 선택했으므로 아담/노아/
+// 무사/이사는 별도 장으로 추가하지 않는다.
+//
+// 맨 앞에 장 1개만 추가했고 기존 13개 장은 v2와 동일하다. -1700년과 570년 사이에
+// 큰 시간 공백이 생기는 것은 의도된 것이다.
+//
+// 설계 원칙 (v2부터 유지):
+// 1) 종교·신학사 중심. 오스만·사파비 등 제국의 정치·군사사는 "배경"으로만 다룬다.
+// 2) 수니·시아를 680년(카르발라) 이후 별도 레인으로 분리, 같은 깊이·중립적 톤.
+//    시아 내부의 열두이맘파/이스마일파/자이드파 분화도 가치 판단 없이 병렬 서술.
+// 3) ScienceCurve의 이슬람 황금기와 시기가 겹치지만 관점이 다르다(신학·법학·신비주의).
+// 4) 두 전통의 마지막 장(현대 수니 개혁·부흥 / 현대 시아 성직 위계)만 ongoing: true.
+// 5) (v3 신규) 새 장의 연대(-2000~-1700)는 JudaismCurve 족장시대 장과 동일하게
+//    맞춰 비교 가능성을 확보하며, 확정된 역사 연대가 아니라 전통적 연대기임을
+//    요약문에서 헷지한다.
 
 import type { Civilization } from "./civilizations";
 
 export const islamHistory: Civilization[] = [
+  {
+    id: "ibrahim-ismail-and-the-founding-of-the-kaaba",
+    name: {
+      ko: "이브라힘·이스마일과 카바 건립",
+      en: "Ibrahim, Isma'il, and the Founding of the Kaaba",
+    },
+    startYear: -2000,
+    endYear: -1700,
+    peakStart: -2000,
+    peakEnd: -1700,
+    summary: {
+      ko: "이슬람 전승에 따르면 이브라힘(아브라함)과 그의 아들 이스마일(이삭이 아님 — 유대·기독교 전통과 갈라지는 핵심 지점), 그리고 이스마일의 어머니 하자르(하갈)가 메카 계곡에 정착했고, 이브라힘과 이스마일이 그곳에 일신교 경배를 위한 \"최초의 집\" 카바를 세웠다고 전한다. 꾸란은 이를 \"밀라트 이브라힘\"(이브라힘의 종교)이라 부르며 이브라힘을 유대인도 기독교인도 아닌 순수한 일신교도 \"하니프\"로 묘사한다(꾸란 3:67). 이 서사는 이슬람에서 단순한 배경 역사가 아니라 하지(성지순례) 의례 자체에 직접 구현되어 있다 — 사파·마르와 두 언덕 사이를 뛰는 사이(하자르의 물 찾기를 기념), 잠잠 샘물, 그리고 이브라힘이 아들(이슬람 전승에서는 이삭이 아닌 이스마일)을 바치려 했던 순종을 기념하는 이둘아드하(희생제)까지. 여기 표기된 연대는 JudaismCurve의 족장시대 장과 동일한 전통적 연대기를 비교 가능성을 위해 그대로 쓴 것일 뿐, 어떤 확정된 역사적 연대로 제시하는 것이 아니다 — 이슬람 전통 자체도 이를 정밀하게 연대가 매겨진 기록이 아니라 신성한 서사로 다룬다.",
+      en: "Islamic tradition holds that Ibrahim (Abraham), his son Isma'il (Ishmael — not Isaac, a key point of divergence from the Judeo-Christian tradition), and Isma'il's mother Hajar (Hagar) settled in the valley of Mecca, where Ibrahim and Isma'il built the Kaaba as \"the first house\" of monotheistic worship. The Quran calls this \"millat Ibrahim\" (the religion of Abraham) and describes Ibrahim as \"hanif\" — a primordial monotheist who was neither Jew nor Christian (Quran 3:67). This narrative is not mere background for Islam: it is directly embodied in the Hajj pilgrimage itself — the sa'i (running between the hills of Safa and Marwah, commemorating Hajar's search for water), the Zamzam well, and Eid al-Adha (commemorating Ibrahim's willingness to sacrifice his son, understood in Islamic tradition to be Isma'il rather than Isaac). The dates shown here follow the same traditional chronology used for JudaismCurve's patriarchal-era chapter, for comparability across datasets only — they are not presented as a settled historical date; Islamic tradition itself treats this as sacred narrative rather than a precisely dated historical record.",
+    },
+    keyEvents: [
+      {
+        year: -2000,
+        label: {
+          ko: "전통적 연대 표기 (JudaismCurve 족장시대 장과 비교를 위해 동일 연대 사용)",
+          en: "Traditional dating marker, aligned with JudaismCurve's patriarchal-era chapter for comparability only",
+        },
+      },
+      {
+        year: -1850,
+        label: {
+          ko: "하자르와 이스마일이 메카 계곡에 정착했다고 전해짐, 잠잠 샘물 출현",
+          en: "Hajar and Isma'il are said to settle in the valley of Mecca; the Zamzam well emerges",
+        },
+      },
+      {
+        year: -1700,
+        label: {
+          ko: "이브라힘과 이스마일이 카바를 건립 (꾸란 2:127 등 전승에 따름)",
+          en: "Ibrahim and Isma'il build the Kaaba, per Quranic and Islamic tradition (e.g. Quran 2:127)",
+        },
+      },
+    ],
+    color: "#a68a5a",
+  },
   {
     id: "muhammad-early-revelation",
     name: { ko: "무함마드의 생애와 초기 계시", en: "Muhammad's Life and Early Revelation" },
