@@ -22,9 +22,8 @@ export function DatasetNav({
   ];
   return (
     <nav className="dataset-nav locale-switch mono" aria-label="Dataset">
-      {items.map((item, i) => (
+      {items.map((item) => (
         <span key={item.key}>
-          {i > 0 && <span className="locale-sep">·</span>}
           {item.key === active ? (
             <span aria-current="true">{item.label}</span>
           ) : (
