@@ -45,6 +45,7 @@ export type Dictionary = {
     philosophy: { eyebrow: string; title: string; lede: string };
   };
   detail: { empty: string; peak: string; present: string; ongoing: string; viewFull: string };
+  reaction: { label: string; ariaLabel: string };
   civPage: { back: string };
   localeName: string;
 };
@@ -104,6 +105,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       ongoing: "Ongoing — no decline observed yet",
       viewFull: "View full page →",
     },
+    reaction: { label: "Interesting", ariaLabel: "Mark this chapter as interesting" },
     civPage: {
       back: "← Back to timeline",
     },
@@ -163,6 +165,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       ongoing: "진행 중 — 아직 쇠퇴기가 관측되지 않음",
       viewFull: "전체 보기 →",
     },
+    reaction: { label: "흥미로워요", ariaLabel: "이 항목을 흥미롭다고 표시" },
     civPage: {
       back: "← 타임라인으로 돌아가기",
     },

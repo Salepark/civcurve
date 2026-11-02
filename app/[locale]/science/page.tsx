@@ -31,6 +31,7 @@ export default async function SciencePage({
         <p className="lede">{dict.page.science.lede}</p>
       </header>
       <TimelineApp
+        datasetKey="science"
         civilizations={scienceHistory}
         locale={locale}
         ariaLabel={locale === "en" ? "Science history curve timeline" : "과학사 곡선 타임라인"}

@@ -17,6 +17,6 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  // _next, favicon, 파일 확장자가 있는 정적 자산은 리다이렉트 대상에서 제외
-  matcher: ["/((?!_next|favicon.ico|.*\\..*).*)"],
+  // api, _next, favicon, 파일 확장자가 있는 정적 자산은 리다이렉트 대상에서 제외
+  matcher: ["/((?!api|_next|favicon.ico|.*\\..*).*)"],
 };
