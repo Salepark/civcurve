@@ -31,7 +31,7 @@ export const regionLabels: Record<Locale, Record<RegionKey, string>> = {
 
 export type Dictionary = {
   meta: { title: string; description: string };
-  nav: { civilizations: string; faith: string; art: string; science: string; tech: string; religions: string; literature: string; philosophy: string; islam: string; hinduism: string };
+  nav: { civilizations: string; faith: string; art: string; science: string; tech: string; religions: string; literature: string; philosophy: string; islam: string; hinduism: string; buddhism: string };
   page: {
     eyebrow: string;
     title: string;
@@ -45,6 +45,7 @@ export type Dictionary = {
     philosophy: { eyebrow: string; title: string; lede: string };
     islam: { eyebrow: string; title: string; lede: string };
     hinduism: { eyebrow: string; title: string; lede: string };
+    buddhism: { eyebrow: string; title: string; lede: string };
   };
   detail: { empty: string; peak: string; present: string; ongoing: string; viewFull: string };
   reaction: { label: string; ariaLabel: string };
@@ -108,8 +109,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
         title: "HinduismCurve",
         lede: "The horizontal axis is time. HinduismCurve traces Hindu religious and philosophical history across 13 chapters as a single chronological lane — from the Vedic religion through the Upanishads, the epics, the six orthodox schools of philosophy, Puranic and temple worship, the Tantra and bhakti traditions, the major schools of Vedanta, to modern reform movements and the present. Unlike FaithCurve or IslamCurve, there is no single schism point — traditions (Vaishnavism, Shaivism, Shaktism) and schools branch gradually over time, so chapters overlap in period. The focus is on religious and philosophical development; imperial political history (Maurya, Gupta) appears only as background. Dates for the Vedic period are debated among scholars, so early entries follow conventional estimates. Click a chapter for details.",
       },
+      buddhism: {
+        eyebrow: "BuddhismCurve · Phase 1 prototype",
+        title: "BuddhismCurve",
+        lede: "The horizontal axis is time. BuddhismCurve traces Buddhist religious and philosophical history across 13 chapters through a shared trunk — the Buddha's life, the early sangha, and its branching into roughly eighteen early schools — before dividing into three traditions that remain geographically and doctrinally distinct today: Theravada (Pali canon, Southeast Asia), Mahayana (the bodhisattva ideal, East Asia), and Vajrayana (Tantric practice, emerging later from within Mahayana, primarily Tibet). Each is traced as its own thread, and chapters overlap in period. The focus is on religious and philosophical development; imperial political history (Maurya, Tang, Tibetan empire) appears only as background. The Buddha's dates are debated among scholars, so the earliest entry follows the traditional dating. Click a chapter for details.",
+      },
     },
-    nav: { civilizations: "Civilizations", faith: "Faith History", art: "Art Movements", science: "Science History", tech: "Technology History", religions: "World Religions", literature: "Literature History", philosophy: "Philosophy History", islam: "Islam History", hinduism: "Hinduism History" },
+    nav: { civilizations: "Civilizations", faith: "Faith History", art: "Art Movements", science: "Science History", tech: "Technology History", religions: "World Religions", literature: "Literature History", philosophy: "Philosophy History", islam: "Islam History", hinduism: "Hinduism History", buddhism: "Buddhism History" },
     detail: {
       empty: "Click a civilization in the timeline to see its details here.",
       peak: "Peak",
@@ -178,8 +184,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
         title: "HinduismCurve",
         lede: "가로축은 시간입니다. HinduismCurve는 힌두교의 종교·철학사를 13개 장, 하나의 연대기적 흐름으로 추적합니다 — 베다 종교에서 우파니샤드, 서사시, 정통 6파 철학, 푸라나·사원 신앙, 탄트라·박티 전통, 베단타 학파들을 거쳐 근대 개혁 운동과 현재까지. FaithCurve·IslamCurve와 달리 단일 분기 사건이 없고, 전통(비슈누파·시바파·샥티파)과 학파가 시간이 지나며 점진적으로 갈라져 나오기 때문에 장들의 시기가 겹칩니다. 종교·철학적 발전이 중심이며, 마우리아·굽타 같은 제국의 정치사는 배경으로만 다룹니다. 베다 시대의 연대는 학계에서도 이견이 있어 초기 항목은 전통적 추정 연대를 따릅니다. 장을 클릭하면 상세 정보를 볼 수 있습니다.",
       },
+      buddhism: {
+        eyebrow: "BuddhismCurve · Phase 1 프로토타입",
+        title: "BuddhismCurve",
+        lede: "가로축은 시간입니다. BuddhismCurve는 부처의 생애와 초기 상가, 18부파로의 분화라는 공유된 뿌리에서 시작해, 오늘날까지 지리적·교리적으로 구분되는 세 전통 — 상좌부(팔리 경전, 동남아시아)·대승(보살 사상, 동아시아)·금강승(밀교 수행, 대승에서 더 나중에 파생돼 주로 티베트로)으로 갈라지는 불교의 종교·철학사를 13개 장으로 추적합니다. 각 전통은 따로 이어지며 장들의 시기는 겹칩니다. 종교·철학적 발전이 중심이며, 마우리아·당·토번 같은 제국의 정치사는 배경으로만 다룹니다. 부처의 생몰연대는 학계에서도 이견이 있어 가장 이른 항목은 전통적 연대를 따릅니다. 장을 클릭하면 상세 정보를 볼 수 있습니다.",
+      },
     },
-    nav: { civilizations: "문명", faith: "기독교 역사", art: "미술 사조", science: "과학사", tech: "기술사", religions: "세계 종교", literature: "문학사", philosophy: "철학사", islam: "이슬람 역사", hinduism: "힌두교 역사" },
+    nav: { civilizations: "문명", faith: "기독교 역사", art: "미술 사조", science: "과학사", tech: "기술사", religions: "세계 종교", literature: "문학사", philosophy: "철학사", islam: "이슬람 역사", hinduism: "힌두교 역사", buddhism: "불교 역사" },
     detail: {
       empty: "타임라인에서 문명을 클릭하면 상세 정보가 여기 표시됩니다.",
       peak: "전성기",
