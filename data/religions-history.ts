@@ -45,9 +45,9 @@ export const religionsHistory: Civilization[] = [
   {
     id: "judaism",
     name: { ko: "유대교", en: "Judaism" },
-    startYear: -1800,
+    startYear: -2000,
     endYear: 2026,
-    peakStart: -1800,
+    peakStart: -2000,
     peakEnd: 2026,
     ongoing: true,
     summary: {
@@ -55,7 +55,7 @@ export const religionsHistory: Civilization[] = [
       en: "A religion whose faith-based origin is the covenant between Abraham and God. Historically, scholars see ancient Israelite religious tradition developing gradually over the first millennium BCE into what became Jewish identity. It is included here less for its number of adherents than for the scriptural and doctrinal influence it had on both Christianity and Islam.",
     },
     keyEvents: [
-      { year: -1800, label: { ko: "아브라함 언약 전승 (전통적 연대)", en: "The tradition of Abraham's covenant (traditional dating)" } },
+      { year: -2000, label: { ko: "아브라함 언약 전승 (전통적 연대)", en: "The tradition of Abraham's covenant (traditional dating)" } },
       { year: -1250, label: { ko: "모세의 율법 수여 전승 (전통적 연대)", en: "The tradition of Moses receiving the Law (traditional dating)" } },
       { year: -515, label: { ko: "제2성전 완공", en: "Completion of the Second Temple" } },
     ],
