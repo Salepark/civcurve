@@ -14,10 +14,10 @@ export function DatasetNav({
     { key: "art", label: dict.nav.art, href: `/${locale}/art` },
     { key: "science", label: dict.nav.science, href: `/${locale}/science` },
     { key: "tech", label: dict.nav.tech, href: `/${locale}/tech` },
+    { key: "philosophy", label: dict.nav.philosophy, href: `/${locale}/philosophy` },
+    { key: "literature", label: dict.nav.literature, href: `/${locale}/literature` },
     { key: "religions", label: dict.nav.religions, href: `/${locale}/religions` },
     { key: "faith", label: dict.nav.faith, href: `/${locale}/faith` },
-    { key: "literature", label: dict.nav.literature, href: `/${locale}/literature` },
-    { key: "philosophy", label: dict.nav.philosophy, href: `/${locale}/philosophy` },
   ];
   return (
     <nav className="dataset-nav locale-switch mono" aria-label="Dataset">
