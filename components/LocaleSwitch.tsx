@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { ThemeToggle } from "./ThemeToggle";
 import { locales, dictionaries, type Locale } from "@/lib/i18n";
 
 export function LocaleSwitch({ locale }: { locale: Locale }) {
   return (
+    <div className="switch-row">
     <nav className="locale-switch mono" aria-label="Language">
       {locales.map((l, i) => (
         <span key={l}>
@@ -15,5 +17,7 @@ export function LocaleSwitch({ locale }: { locale: Locale }) {
         </span>
       ))}
     </nav>
+    <ThemeToggle locale={locale} />
+    </div>
   );
 }
