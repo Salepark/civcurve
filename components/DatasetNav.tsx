@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { dictionaries, type Locale } from "@/lib/i18n";
+import { ReligionsGroup } from "./ReligionsGroup";
 
 export function DatasetNav({
   locale,
@@ -16,13 +17,12 @@ export function DatasetNav({
     { key: "tech", label: dict.nav.tech, href: `/${locale}/tech` },
     { key: "philosophy", label: dict.nav.philosophy, href: `/${locale}/philosophy` },
     { key: "literature", label: dict.nav.literature, href: `/${locale}/literature` },
-    { key: "religions", label: dict.nav.religions, href: `/${locale}/religions` },
-    { key: "faith", label: dict.nav.faith, href: `/${locale}/faith` },
-    { key: "islam", label: dict.nav.islam, href: `/${locale}/islam` },
-    { key: "hinduism", label: dict.nav.hinduism, href: `/${locale}/hinduism` },
-    { key: "buddhism", label: dict.nav.buddhism, href: `/${locale}/buddhism` },
-    { key: "judaism", label: dict.nav.judaism, href: `/${locale}/judaism` },
   ];
+  const religionsItems = ["faith", "islam", "hinduism", "buddhism", "judaism"].map((key) => ({
+    key,
+    label: dict.nav[key as "faith" | "islam" | "hinduism" | "buddhism" | "judaism"],
+    href: `/${locale}/religions/${key}`,
+  }));
   return (
     <nav className="dataset-nav locale-switch mono" aria-label="Dataset">
       {items.map((item) => (
@@ -34,6 +34,12 @@ export function DatasetNav({
           )}
         </span>
       ))}
+      <ReligionsGroup
+        header={{ key: "religions", label: dict.nav.religionsGroup, href: `/${locale}/religions` }}
+        items={religionsItems}
+        active={active}
+        toggleLabel={dict.nav.religionsToggle}
+      />
     </nav>
   );
 }
