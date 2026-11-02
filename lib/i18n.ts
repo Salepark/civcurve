@@ -31,7 +31,7 @@ export const regionLabels: Record<Locale, Record<RegionKey, string>> = {
 
 export type Dictionary = {
   meta: { title: string; description: string };
-  nav: { civilizations: string; faith: string; art: string; science: string; tech: string; religions: string; literature: string; philosophy: string };
+  nav: { civilizations: string; faith: string; art: string; science: string; tech: string; religions: string; literature: string; philosophy: string; islam: string };
   page: {
     eyebrow: string;
     title: string;
@@ -43,6 +43,7 @@ export type Dictionary = {
     religions: { eyebrow: string; title: string; lede: string };
     literature: { eyebrow: string; title: string; lede: string };
     philosophy: { eyebrow: string; title: string; lede: string };
+    islam: { eyebrow: string; title: string; lede: string };
   };
   detail: { empty: string; peak: string; present: string; ongoing: string; viewFull: string };
   reaction: { label: string; ariaLabel: string };
@@ -96,8 +97,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
         title: "PhilosophyCurve",
         lede: "The horizontal axis is time. This page traces the history of Western philosophy across 15 chapters, from the natural philosophy of the Pre-Socratics through today's philosophy of mind and AI ethics. Several chapters overlap in period and figures with other datasets on this site — medieval scholasticism with ScienceCurve, patristic thought with FaithCurve and WorldReligionsCurve, existentialism and postmodernism with LiteratureCurve — and that overlap is intentional, since the history of philosophy was never a separate, isolated track from theology, science, or literature. Click a chapter for details.",
       },
+      islam: {
+        eyebrow: "IslamCurve · Phase 1 prototype",
+        title: "IslamCurve",
+        lede: "The horizontal axis is time. IslamCurve traces Islamic religious and theological history across 13 chapters, from Muhammad's first revelation through the Sunni–Shia split at Karbala (680 CE) to the present, following each tradition as its own lane — with equal depth and no implied hierarchy between them. The focus is on religious and theological development; imperial political history (Ottoman, Safavid) appears only as background. Some chapters overlap in period with other datasets on this site, such as ScienceCurve's Islamic Golden Age — that overlap is intentional, since this page looks at the same centuries from the angle of law, theology, and mysticism rather than scientific achievement. Click a chapter for details.",
+      },
     },
-    nav: { civilizations: "Civilizations", faith: "Faith History", art: "Art Movements", science: "Science History", tech: "Technology History", religions: "World Religions", literature: "Literature History", philosophy: "Philosophy History" },
+    nav: { civilizations: "Civilizations", faith: "Faith History", art: "Art Movements", science: "Science History", tech: "Technology History", religions: "World Religions", literature: "Literature History", philosophy: "Philosophy History", islam: "Islam History" },
     detail: {
       empty: "Click a civilization in the timeline to see its details here.",
       peak: "Peak",
@@ -156,8 +162,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
         title: "PhilosophyCurve",
         lede: "가로축은 시간입니다. 이 페이지는 소크라테스 이전 자연철학자들부터 오늘날의 심리철학·AI 윤리까지, 서양 철학사를 15개 장으로 나눠 보여줍니다. 일부 장은 이 사이트의 다른 데이터셋과 시기·인물이 겹칩니다 — 중세 스콜라 철학은 ScienceCurve와, 교부 철학은 FaithCurve·WorldReligionsCurve와, 실존주의·포스트모던 철학은 LiteratureCurve와 겹치는데, 이는 의도된 것입니다. 철학사는 신학·과학·문학사와 따로 떼어낼 수 있는 독립된 흐름이 아니었기 때문입니다. 장을 클릭하면 상세 정보를 볼 수 있습니다.",
       },
+      islam: {
+        eyebrow: "IslamCurve · Phase 1 프로토타입",
+        title: "IslamCurve",
+        lede: "가로축은 시간입니다. IslamCurve는 무함마드의 첫 계시부터 카르발라(680년)에서의 수니·시아 분기, 그리고 현재까지 이슬람의 종교·신학사를 13개 장으로 나눠 보여줍니다. 두 전통을 각자의 레인으로 동일한 깊이·중립적 톤으로 추적하며 어느 쪽에도 더 정통이라는 인상을 주지 않습니다. 종교·신학적 발전이 중심이며, 오스만·사파비 같은 제국의 정치사는 배경으로만 다룹니다. 일부 장은 ScienceCurve의 이슬람 황금기처럼 이 사이트의 다른 데이터셋과 시기가 겹치는데, 이는 의도된 것입니다 — 이 페이지는 같은 시기를 과학적 성취가 아니라 법학·신학·신비주의의 관점에서 봅니다. 장을 클릭하면 상세 정보를 볼 수 있습니다.",
+      },
     },
-    nav: { civilizations: "문명", faith: "기독교 역사", art: "미술 사조", science: "과학사", tech: "기술사", religions: "세계 종교", literature: "문학사", philosophy: "철학사" },
+    nav: { civilizations: "문명", faith: "기독교 역사", art: "미술 사조", science: "과학사", tech: "기술사", religions: "세계 종교", literature: "문학사", philosophy: "철학사", islam: "이슬람 역사" },
     detail: {
       empty: "타임라인에서 문명을 클릭하면 상세 정보가 여기 표시됩니다.",
       peak: "전성기",
