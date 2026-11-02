@@ -31,7 +31,7 @@ export const regionLabels: Record<Locale, Record<RegionKey, string>> = {
 
 export type Dictionary = {
   meta: { title: string; description: string };
-  nav: { civilizations: string; faith: string; art: string; science: string; tech: string; religions: string; literature: string; philosophy: string; islam: string; hinduism: string; buddhism: string };
+  nav: { civilizations: string; faith: string; art: string; science: string; tech: string; religions: string; literature: string; philosophy: string; islam: string; hinduism: string; buddhism: string; judaism: string };
   page: {
     eyebrow: string;
     title: string;
@@ -46,6 +46,7 @@ export type Dictionary = {
     islam: { eyebrow: string; title: string; lede: string };
     hinduism: { eyebrow: string; title: string; lede: string };
     buddhism: { eyebrow: string; title: string; lede: string };
+    judaism: { eyebrow: string; title: string; lede: string };
   };
   detail: { empty: string; peak: string; present: string; ongoing: string; viewFull: string };
   reaction: { label: string; ariaLabel: string };
@@ -114,8 +115,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
         title: "BuddhismCurve",
         lede: "The horizontal axis is time. BuddhismCurve traces Buddhist religious and philosophical history across 13 chapters through a shared trunk — the Buddha's life, the early sangha, and its branching into roughly eighteen early schools — before dividing into three traditions that remain geographically and doctrinally distinct today: Theravada (Pali canon, Southeast Asia), Mahayana (the bodhisattva ideal, East Asia), and Vajrayana (Tantric practice, emerging later from within Mahayana, primarily Tibet). Each is traced as its own thread, and chapters overlap in period. The focus is on religious and philosophical development; imperial political history (Maurya, Tang, Tibetan empire) appears only as background. The Buddha's dates are debated among scholars, so the earliest entry follows the traditional dating. Click a chapter for details.",
       },
+      judaism: {
+        eyebrow: "JudaismCurve · Phase 1 prototype",
+        title: "JudaismCurve",
+        lede: "A chronological look at Judaism's history from the traditional era of the patriarchs to the present — the Exodus and the Sinai covenant, the First and Second Temples, the Babylonian exile, rabbinic Judaism after 70 CE, medieval Jewish philosophy and Kabbalah, Hasidism, the Haskalah, Zionism, and the modern denominational movements — told as a single continuous flow rather than separate branches, since Judaism has no single schism point like Islam's Sunni–Shia split or a clean lineage branching like Buddhism's three vehicles. The earliest entries follow traditional biblical chronology, which modern scholarship debates. Click a chapter for details.",
+      },
     },
-    nav: { civilizations: "Civilizations", faith: "Faith History", art: "Art Movements", science: "Science History", tech: "Technology History", religions: "World Religions", literature: "Literature History", philosophy: "Philosophy History", islam: "Islam History", hinduism: "Hinduism History", buddhism: "Buddhism History" },
+    nav: { civilizations: "Civilizations", faith: "Faith History", art: "Art Movements", science: "Science History", tech: "Technology History", religions: "World Religions", literature: "Literature History", philosophy: "Philosophy History", islam: "Islam History", hinduism: "Hinduism History", buddhism: "Buddhism History", judaism: "Judaism History" },
     detail: {
       empty: "Click a civilization in the timeline to see its details here.",
       peak: "Peak",
@@ -189,8 +195,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
         title: "BuddhismCurve",
         lede: "가로축은 시간입니다. BuddhismCurve는 부처의 생애와 초기 상가, 18부파로의 분화라는 공유된 뿌리에서 시작해, 오늘날까지 지리적·교리적으로 구분되는 세 전통 — 상좌부(팔리 경전, 동남아시아)·대승(보살 사상, 동아시아)·금강승(밀교 수행, 대승에서 더 나중에 파생돼 주로 티베트로)으로 갈라지는 불교의 종교·철학사를 13개 장으로 추적합니다. 각 전통은 따로 이어지며 장들의 시기는 겹칩니다. 종교·철학적 발전이 중심이며, 마우리아·당·토번 같은 제국의 정치사는 배경으로만 다룹니다. 부처의 생몰연대는 학계에서도 이견이 있어 가장 이른 항목은 전통적 연대를 따릅니다. 장을 클릭하면 상세 정보를 볼 수 있습니다.",
       },
+      judaism: {
+        eyebrow: "JudaismCurve · Phase 1 프로토타입",
+        title: "JudaismCurve",
+        lede: "족장시대의 전통적 연대부터 현재까지 유대교의 역사를 연대기 순으로 살펴봅니다 — 출애굽과 시내산 언약, 제1·2성전, 바빌론 유수, 기원후 70년 이후의 랍비 유대교, 중세 유대 철학과 카발라, 하시디즘, 하스칼라, 시오니즘, 그리고 근대 교파 운동까지. 이슬람의 수니-시아 분열이나 불교의 삼승(三乘) 같은 뚜렷한 분기가 없는 유대교의 역사적 특성에 맞춰, 레인을 나누지 않고 단일한 연대기 흐름으로 구성했습니다. 가장 이른 시기의 항목들은 전통적 성서 연대기를 따르며, 이는 현대 학계에서 논쟁적인 영역입니다. 챕터를 클릭하면 상세 정보를 볼 수 있습니다.",
+      },
     },
-    nav: { civilizations: "문명", faith: "기독교 역사", art: "미술 사조", science: "과학사", tech: "기술사", religions: "세계 종교", literature: "문학사", philosophy: "철학사", islam: "이슬람 역사", hinduism: "힌두교 역사", buddhism: "불교 역사" },
+    nav: { civilizations: "문명", faith: "기독교 역사", art: "미술 사조", science: "과학사", tech: "기술사", religions: "세계 종교", literature: "문학사", philosophy: "철학사", islam: "이슬람 역사", hinduism: "힌두교 역사", buddhism: "불교 역사", judaism: "유대교사" },
     detail: {
       empty: "타임라인에서 문명을 클릭하면 상세 정보가 여기 표시됩니다.",
       peak: "전성기",

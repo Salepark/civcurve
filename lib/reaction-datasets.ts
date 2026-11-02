@@ -10,6 +10,7 @@ import { philosophyHistory } from "@/data/philosophy-history";
 import { islamHistory } from "@/data/islam-history";
 import { hinduismHistory } from "@/data/hinduism-history";
 import { buddhismHistory } from "@/data/buddhism-history";
+import { judaismHistory } from "@/data/judaism-history";
 
 export const REACTION_DATASETS: Record<string, Civilization[]> = {
   civilizations,
@@ -23,6 +24,7 @@ export const REACTION_DATASETS: Record<string, Civilization[]> = {
   islam: islamHistory,
   hinduism: hinduismHistory,
   buddhism: buddhismHistory,
+  judaism: judaismHistory,
 };
 
 export function isValidReactionTarget(dataset: string, entryId: string): boolean {

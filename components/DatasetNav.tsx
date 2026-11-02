@@ -6,10 +6,10 @@ export function DatasetNav({
   active,
 }: {
   locale: Locale;
-  active: "civilizations" | "faith" | "art" | "science" | "tech" | "religions" | "literature" | "philosophy" | "islam" | "hinduism" | "buddhism";
+  active: "civilizations" | "faith" | "art" | "science" | "tech" | "religions" | "literature" | "philosophy" | "islam" | "hinduism" | "buddhism" | "judaism";
 }) {
   const dict = dictionaries[locale];
-  const items: { key: "civilizations" | "faith" | "art" | "science" | "tech" | "religions" | "literature" | "philosophy" | "islam" | "hinduism" | "buddhism"; label: string; href: string }[] = [
+  const items: { key: "civilizations" | "faith" | "art" | "science" | "tech" | "religions" | "literature" | "philosophy" | "islam" | "hinduism" | "buddhism" | "judaism"; label: string; href: string }[] = [
     { key: "civilizations", label: dict.nav.civilizations, href: `/${locale}` },
     { key: "art", label: dict.nav.art, href: `/${locale}/art` },
     { key: "science", label: dict.nav.science, href: `/${locale}/science` },
@@ -21,6 +21,7 @@ export function DatasetNav({
     { key: "islam", label: dict.nav.islam, href: `/${locale}/islam` },
     { key: "hinduism", label: dict.nav.hinduism, href: `/${locale}/hinduism` },
     { key: "buddhism", label: dict.nav.buddhism, href: `/${locale}/buddhism` },
+    { key: "judaism", label: dict.nav.judaism, href: `/${locale}/judaism` },
   ];
   return (
     <nav className="dataset-nav locale-switch mono" aria-label="Dataset">
